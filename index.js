@@ -14,14 +14,17 @@ for (const file of commandFiles) {
 
 const cooldowns = new Discord.Collection();
 
-client.on('ready', () => {
+client.once('ready', () => {
 	console.log('Ready!');
 });
 
 client.on('message', message => {
 	if (message.content === 'ping') {
     		message.reply('pong');
-  		}
+  	}
+	
+	if (message.content.startsWith(prefix))
+		message.reply('test');
 	
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -69,8 +72,7 @@ client.on('message', message => {
 
 	try {
 		command.execute(message, args);
-	}
-	catch (error) {
+	} catch (error) {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');
 	}
