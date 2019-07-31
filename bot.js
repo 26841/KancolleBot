@@ -72,4 +72,4 @@ client.on('message', message => {
 	}
 });
 
-client.login(process.env.NjAwNDcwODA4Nzg3MTU3MDEy.XUEVZw.sAngHWQ08_1MZfb05FmXIF9i3-I);
+client.login(process.env.-O63jBptV1UrDxK6I-pBEbtIF9_br3H_);
