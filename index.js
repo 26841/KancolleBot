@@ -10,6 +10,7 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
+	console.log(command.name);
 }
 
 const cooldowns = new Discord.Collection();
@@ -19,6 +20,9 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
+	
+	if (message.content.startsWith(prefix))
+		message.reply('test');
 	
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
