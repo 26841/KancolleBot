@@ -14,7 +14,7 @@ for (const file of commandFiles) {
 
 const cooldowns = new Discord.Collection();
 
-client.once('ready', () => {
+client.on('ready', () => {
 	console.log('Ready!');
 });
 
@@ -72,4 +72,4 @@ client.on('message', message => {
 	}
 });
 
-client.login(token);
+client.login(process.env.BOT_TOKEN);
