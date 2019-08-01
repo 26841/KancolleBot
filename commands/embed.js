@@ -5,27 +5,50 @@ module.exports = {
 	description: 'Embed Test 2.',
 	execute(message) {
 		message.channel.send({ embed: {
-			color: 3447003,
-			title: 'This is an embed',
-			url: 'http://google.com',
-			description: 'This is a test embed to showcase what they look like and what they can do.',
-			fields: [{
-				name: 'Fields',
-				value: 'They can have different fields with small headlines.',
+			color: 0x0099ff,
+			title: 'Some title',
+			url: 'https://discord.js.org',
+			author: {
+				name: 'Some name',
+				icon_url: 'https://i.imgur.com/wSTFkRM.png',
+				url: 'https://discord.js.org',
 			},
-			{
-				name: 'Masked links',
-				value: 'You can put [masked links](http://google.com) inside of rich embeds.',
+			description: 'Some description here',
+			thumbnail: {
+				url: 'https://i.imgur.com/wSTFkRM.png',
 			},
-			{
-				name: 'Markdown',
-				value: 'You can put all the *usual* **__Markdown__** inside of them.',
-			},
+			fields: [
+				{
+					name: 'Regular field title',
+					value: 'Some value here',
+				},
+				{
+					name: '\u200b',
+					value: '\u200b',
+				},
+				{
+					name: 'Inline field title',
+					value: 'Some value here',
+					inline: true,
+				},
+				{
+					name: 'Inline field title',
+					value: 'Some value here',
+					inline: true,
+				},
+				{
+					name: 'Inline field title',
+					value: 'Some value here',
+					inline: true,
+				},
 			],
+			image: {
+				url: 'https://i.imgur.com/wSTFkRM.png',
+			},
 			timestamp: new Date(),
 			footer: {
-				text: '© Example',
+				text: 'Some footer text here',
+				icon_url: 'https://i.imgur.com/wSTFkRM.png',
 			},
-		},
-		});
+		} });
 	} };
