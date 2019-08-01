@@ -1,2 +1,5 @@
+1.0.1   8/1/2019
+     Addition of embed test commands, fixed !ping error
+
 1.0.0   7/30/2019
      Migration of files to GitHub repository, test and preliminary bot files added
