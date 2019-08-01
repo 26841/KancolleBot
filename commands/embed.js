@@ -7,7 +7,7 @@ module.exports = {
 		message.channel.send('This is an embed', {
 			embed: {
 				thumbnail: {
-					url: 'attachment://file.jpg',
+					url: 'https://i.imgur.com/wSTFkRM.png',
 				},
 			},
 		})
