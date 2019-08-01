@@ -4,13 +4,28 @@ module.exports = {
 	name: 'embed',
 	description: 'Embed Test 2.',
 	execute(message) {
-		message.channel.send('This is an embed', {
-			embed: {
-				thumbnail: {
-					url: 'https://i.imgur.com/wSTFkRM.png',
-				},
+		message.channel.send({ embed: {
+			color: 3447003,
+			title: 'This is an embed',
+			url: 'http://google.com',
+			description: 'This is a test embed to showcase what they look like and what they can do.',
+			fields: [{
+				name: 'Fields',
+				value: 'They can have different fields with small headlines.',
 			},
-		})
-			.then(console.log)
-			.catch(console.error);
+			{
+				name: 'Masked links',
+				value: 'You can put [masked links](http://google.com) inside of rich embeds.',
+			},
+			{
+				name: 'Markdown',
+				value: 'You can put all the *usual* **__Markdown__** inside of them.',
+			},
+			],
+			timestamp: new Date(),
+			footer: {
+				text: '© Example',
+			},
+		},
+		});
 	} };
