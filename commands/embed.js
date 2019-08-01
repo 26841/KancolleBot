@@ -5,10 +5,11 @@ module.exports = {
 	description: 'Embed Test 2.',
 	execute(message) {
 		message.channel.send('This is an embed', {
-			files: [{
-				attachment: 'https://i.imgur.com/wSTFkRM.png',
-				name: 'file.jpg',
-			}],
+			embed: {
+				thumbnail: {
+					url: 'attachment://file.jpg',
+				},
+			},
 		})
 			.then(console.log)
 			.catch(console.error);
