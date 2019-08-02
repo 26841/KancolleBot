@@ -60,7 +60,7 @@ module.exports = {
 			const sheets = google.sheets({ version: 'v4', auth });
 			sheets.spreadsheets.values.get({
 				spreadsheetId: '1UG3571gvb8E5arKOPdmB80MW_H91HPqaqDzKv0yPkTc',
-				range: 'Sheet4!B5:AR',
+				range: 'Sheet4!B5:C14',
 			}, (err, res) => {
 				if (err) return console.log('The API returned an error: ' + err);
 				const rows = res.data.values;
