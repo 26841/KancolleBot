@@ -13,7 +13,6 @@ module.exports = {
 			return message.reply('You need to provide something to search!');
 		}
 		args.join(' ');
-		message.channel.send(args);
 		fs.readFile('credentials.json', (err, content) => {
 			if (err) return console.log('Error loading client secret file:', err);
 			// Authorize a client with credentials, then call the Google Sheets API.
@@ -71,10 +70,8 @@ module.exports = {
 				const rows = res.data.values;
 				if (rows.length) {
 					message.channel.send('#, Name:');
-					rows.map((row) => {
-						const matchRow = row.find(row[0] == args);
-						message.channel.send(`${matchRow[0]}, ${matchRow[1]}`);
-					});
+					const matchRow = rows.find(row => row[0] === args);
+					message.channel.send(`${matchRow[0]}, ${matchRow[1]}`);
 				}
 				else {
 					console.log('No data found.');
