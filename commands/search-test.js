@@ -75,7 +75,6 @@ module.exports = {
 					else {
 						const name = args.join(' ');
 						const properName = toTitleCase(name);
-						message.channel.send(properName);
 						matchRow = rows.find(row => row[1] == properName);
 					}
 					// embed(matchRow);
