@@ -72,7 +72,7 @@ module.exports = {
 				if (rows.length) {
 					message.channel.send('#, Name:');
 					rows.map((row) => {
-						const matchRow = row.find(row[0] === args);
+						const matchRow = row.find(row[0] == args);
 						message.channel.send(`${matchRow[0]}, ${matchRow[1]}`);
 					});
 				}
