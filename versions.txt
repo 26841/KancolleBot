@@ -1,5 +1,5 @@
 1.0.2   8/2/2019
-     Updated googleapis
+     Updated googleapis, added search function
 
 1.0.1   8/1/2019
      Addition of embed test commands, fixed !ping error
