@@ -69,9 +69,9 @@ module.exports = {
 				if (err) return console.log('The API returned an error: ' + err);
 				const rows = res.data.values;
 				if (rows.length) {
-					message.channel.send('#, Name:');
+					message.channel.send('#, Name:, 名前, Seiyuu, Artist, Rarity, Class, Type, Implementation Date, Birthday, Current Age');
 					const matchRow = rows.find(row => row[0] == args);
-					message.channel.send(`${matchRow[0]}, ${matchRow[1]}`);
+					message.channel.send(`${matchRow[0]}, ${matchRow[1]}, ${matchRow[2]}, ${matchRow[3]}, ${matchRow[4]}, ${matchRow[5]}, ${matchRow[6]}, ${matchRow[7]}, ${matchRow[8]}, ${matchRow[9]}, ${matchRow[10]}`);
 				}
 				else {
 					console.log('No data found.');
