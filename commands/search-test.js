@@ -12,8 +12,6 @@ module.exports = {
 		if (!args.length) {
 			return message.reply('You need to provide something to search!');
 		}
-		args.join(' ');
-		message.channel.send(args);
 		fs.readFile('credentials.json', (err, content) => {
 			if (err) return console.log('Error loading client secret file:', err);
 			// Authorize a client with credentials, then call the Google Sheets API.
@@ -75,7 +73,7 @@ module.exports = {
 						matchRow = rows.find(row => row[0] == args);
 					}
 					else {
-						args.join(' ');
+						args.join(" ");
 						matchRow = rows.find(row => row[1] == args);
 					}
 					message.channel.send('#, Name:, 名前, Seiyuu, Artist, Rarity, Class, Type, Implementation Date, Birthday, Current Age');
