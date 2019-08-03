@@ -74,6 +74,7 @@ module.exports = {
 					}
 					else {
 						args.join(" ");
+						message.channel.send(args);
 						matchRow = rows.find(row => row[1] == args);
 					}
 					message.channel.send('#, Name:, 名前, Seiyuu, Artist, Rarity, Class, Type, Implementation Date, Birthday, Current Age');
