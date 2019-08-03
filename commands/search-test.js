@@ -13,6 +13,7 @@ module.exports = {
 			return message.reply('You need to provide something to search!');
 		}
 		args.join(' ');
+		message.channel.send(args);
 		fs.readFile('credentials.json', (err, content) => {
 			if (err) return console.log('Error loading client secret file:', err);
 			// Authorize a client with credentials, then call the Google Sheets API.
