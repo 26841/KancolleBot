@@ -70,8 +70,8 @@ module.exports = {
 				const rows = res.data.values;
 				if (rows.length) {
 					let matchRow;
-					if (isNaN(args)) {
-						args.toString();
+					if (!isNaN(args)) {
+						parseInt(args);
 						matchRow = rows.find(row => row[0] === args);
 					}
 					else {
