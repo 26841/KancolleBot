@@ -71,8 +71,10 @@ module.exports = {
 				const rows = res.data.values;
 				if (rows.length) {
 					message.channel.send('#, Name:');
-					const matchRow = rows.find(row => row[0] === args);
-					message.channel.send(`${matchRow[0]}, ${matchRow[1]}`);
+					rows.map((row) => {
+						const matchRow = row.find(row[0] === args);
+						message.channel.send(`${matchRow[0]}, ${matchRow[1]}`);
+					});
 				}
 				else {
 					console.log('No data found.');
