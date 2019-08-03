@@ -75,10 +75,12 @@ module.exports = {
 					else {
 						const name = args.join(' ');
 						const properName = toTitleCase(name);
+						message.channel.send(properName);
 						matchRow = rows.find(row => row[1] == properName);
 					}
-					message.channel.send('#, Name:, 名前, Seiyuu, Artist, Rarity, Class, Type, Implementation Date, Birthday, Current Age');
-					message.channel.send(`${matchRow[0]}, ${matchRow[1]}, ${matchRow[2]}, ${matchRow[3]}, ${matchRow[4]}, ${matchRow[5]}, ${matchRow[6]}, ${matchRow[7]}, ${matchRow[8]}, ${matchRow[9]}, ${matchRow[10]}`);
+					embed(matchRow);
+					// message.channel.send('#, Name:, 名前, Seiyuu, Artist, Rarity, Class, Type, Implementation Date, Birthday, Current Age');
+					// message.channel.send(`${matchRow[0]}, ${matchRow[1]}, ${matchRow[2]}, ${matchRow[3]}, ${matchRow[4]}, ${matchRow[5]}, ${matchRow[6]}, ${matchRow[7]}, ${matchRow[8]}, ${matchRow[9]}, ${matchRow[10]}`);
 				}
 				else {
 					console.log('No data found.');
@@ -93,6 +95,56 @@ module.exports = {
 					return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
 				}
 			);
+		}
+
+		function embed(matchRow) {
+			message.channel.send({ embed: {
+				color: 0x0099ff,
+				title: `${matchRow[0]}`,
+				url: 'https://discord.js.org',
+				author: {
+					name: 'Some name',
+					icon_url: 'https://i.imgur.com/wSTFkRM.png',
+					url: 'https://discord.js.org',
+				},
+				description: 'Some description here',
+				thumbnail: {
+					url: 'https://i.imgur.com/wSTFkRM.png',
+				},
+				fields: [
+					{
+						name: 'Regular field title',
+						value: 'Some value here',
+					},
+					{
+						name: '\u200b',
+						value: '\u200b',
+					},
+					{
+						name: 'Inline field title',
+						value: 'Some value here',
+						inline: true,
+					},
+					{
+						name: 'Inline field title',
+						value: 'Some value here',
+						inline: true,
+					},
+					{
+						name: 'Inline field title',
+						value: 'Some value here',
+						inline: true,
+					},
+				],
+				image: {
+					url: 'https://i.imgur.com/wSTFkRM.png',
+				},
+				timestamp: new Date(),
+				footer: {
+					text: 'Some footer text here',
+					icon_url: 'https://i.imgur.com/wSTFkRM.png',
+				},
+			} });
 		}
 	},
 };
