@@ -71,10 +71,12 @@ module.exports = {
 				if (rows.length) {
 					let matchRow;
 					if (!isNaN(args)) {
+						console.log('Test 1');
 						args = parseInt(args);
 						matchRow = rows.find(row => row[0] === args);
 					}
 					else {
+						console.log('Test 2');
 						matchRow = rows.find(row => row[1] === args);
 					}
 					message.channel.send('#, Name:, 名前, Seiyuu, Artist, Rarity, Class, Type, Implementation Date, Birthday, Current Age');
