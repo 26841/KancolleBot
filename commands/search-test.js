@@ -6,9 +6,12 @@ const TOKEN_PATH = 'token.json';
 // const Discord = require('discord.js');
 
 module.exports = {
-	name: 'search-test',
-	description: 'Sheet Search Test',
+	name: 'sheet',
+	description: 'Sheet Display Test',
 	execute(message, args) {
+		if (!args.length) {
+			return message.reply('You need to provide something to search!');
+		}
 		args.join(' ');
 		fs.readFile('credentials.json', (err, content) => {
 			if (err) return console.log('Error loading client secret file:', err);
