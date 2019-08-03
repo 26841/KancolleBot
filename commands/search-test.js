@@ -71,7 +71,7 @@ module.exports = {
 				if (rows.length) {
 					let matchRow;
 					if (isNaN(args)) {
-						args.parseInt();
+						parseInt(args);
 						matchRow = rows.find(row => row[0] === args);
 					}
 					else {
