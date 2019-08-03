@@ -69,6 +69,7 @@ module.exports = {
 				if (err) return console.log('The API returned an error: ' + err);
 				const rows = res.data.values;
 				if (rows.length) {
+					message.channel.send(args);
 					let matchRow;
 					if (!isNaN(args)) {
 						matchRow = rows.find(row => row[0] == args);
