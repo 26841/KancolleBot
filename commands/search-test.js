@@ -71,11 +71,10 @@ module.exports = {
 				if (rows.length) {
 					let matchRow;
 					if (!isNaN(args)) {
-						var number = parseInt(args, 10);
-						matchRow = rows.find(row => row[0] === number);
+						matchRow = rows.find(row => row[0] == number);
 					}
 					else {
-						matchRow = rows.find(row => row[1] === args);
+						matchRow = rows.find(row => row[1] == args);
 					}
 					message.channel.send('#, Name:, 名前, Seiyuu, Artist, Rarity, Class, Type, Implementation Date, Birthday, Current Age');
 					message.channel.send(`${matchRow[0]}, ${matchRow[1]}, ${matchRow[2]}, ${matchRow[3]}, ${matchRow[4]}, ${matchRow[5]}, ${matchRow[6]}, ${matchRow[7]}, ${matchRow[8]}, ${matchRow[9]}, ${matchRow[10]}`);
