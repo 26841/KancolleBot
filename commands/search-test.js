@@ -100,7 +100,7 @@ module.exports = {
 		function embed(matchRow) {
 			message.channel.send({ embed: {
 				color: 0x0099ff,
-				title: `${matchRow[0]}`,
+				title: `${matchRow[0]}` + ': ' + `${matchRow[1]}`,
 				url: 'https://discord.js.org',
 				author: {
 					name: 'Some name',
