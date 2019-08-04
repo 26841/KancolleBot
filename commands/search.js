@@ -108,8 +108,6 @@ module.exports = {
 		}
 
 		function embed(matchRow) {
-			const newURL = validateURL(`${matchRow[55]}`);
-			console.log(newURL);
 			message.channel.send({ embed: {
 				color: 0x0099ff,
 				title: `${matchRow[0]}` + ': ' + `${matchRow[1]}`,
@@ -121,7 +119,7 @@ module.exports = {
 				},
 				description: 'Some description here',
 				thumbnail: {
-					url: newURL,
+					url: 'https://vignette.wikia.nocookie.net/kancolle/images/2/2c/Nagato_Full.png/revision/latest?cb=20180817193225',
 				},
 				fields: [
 					{
