@@ -16,8 +16,6 @@ const cooldowns = new Discord.Collection();
 
 client.once('ready', () => {
 	console.log('Ready!');
-	scheduledMessage2(message);
-	scheduledMessage(message);
 });
 
 client.on('message', message => {
