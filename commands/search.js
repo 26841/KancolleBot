@@ -75,7 +75,7 @@ module.exports = {
 						if (`${matchRow[1]}` == 'NO DATA') {
 							return message.reply('That ID does not have a corresponding kanmusu yet!');
 						}
-						else if(!matchRow) {
+						else if(matchRow == null) {
 							return message.reply('That ID does not have a corresponding kanmusu yet!');
 						}
 					}
