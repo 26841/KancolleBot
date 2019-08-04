@@ -79,7 +79,7 @@ module.exports = {
 						const name = args.join(' ');
 						const properName = toTitleCase(name);
 						matchRow = rows.find(row => row[1] == properName);
-						if (matchRow == null || properName.equalsIgnoreCase('NO DATA')) {
+						if (matchRow == null) {
 							return message.reply('Please check spelling!');
 						}
 					}
