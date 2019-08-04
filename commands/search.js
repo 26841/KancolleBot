@@ -71,6 +71,9 @@ module.exports = {
 					let matchRow;
 					if (!isNaN(args)) {
 						matchRow = rows.find(row => row[0] == args);
+						if (`${matchRow[1]}` == 'NO DATA') {
+							return message.reply('That ID does not have a corresponding kanmusu yet!');
+						}
 					}
 					else {
 						const name = args.join(' ');
