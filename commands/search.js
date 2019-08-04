@@ -114,7 +114,7 @@ module.exports = {
 				},
 				description: 'Some description here',
 				thumbnail: {
-					url: 'https://i.imgur.com/wSTFkRM.png',
+					url: `${matchRow[55]}`,
 				},
 				fields: [
 					{
