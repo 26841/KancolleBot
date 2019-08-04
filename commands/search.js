@@ -80,6 +80,9 @@ module.exports = {
 						const properName = toTitleCase(name);
 						matchRow = rows.find(row => row[1] == properName);
 					}
+					if (!matchRow) {
+						return message.reply('Not found!');
+					}
 					embed(matchRow);
 					// message.channel.send('#, Name:, 名前, Seiyuu, Artist, Rarity, Class, Type, Implementation Date, Birthday, Current Age');
 					// message.channel.send(`${matchRow[0]}, ${matchRow[1]}, ${matchRow[2]}, ${matchRow[3]}, ${matchRow[4]}, ${matchRow[5]}, ${matchRow[6]}, ${matchRow[7]}, ${matchRow[8]}, ${matchRow[9]}, ${matchRow[10]}`);
