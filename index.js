@@ -70,6 +70,14 @@ client.on('message', message => {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');
 	}
+	
+	scheduledMessage(message);
 });
+
+function scheduledMessage(message) {
+	cron.schedule('* * * * *', () => {
+		message.channel.send('running a task every minute');
+	});
+}
 
 client.login(process.env.BOT_TOKEN);
