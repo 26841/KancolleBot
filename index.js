@@ -75,7 +75,7 @@ client.on('message', message => {
 });
 
 function scheduledMessage(message) {
-	cron.schedule('00 00 * * * *', () => {
+	cron.schedule('0 0 * * * *', () => {
 		message.channel.send('running a task every hour');
 	});
 }
