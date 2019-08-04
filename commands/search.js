@@ -102,11 +102,6 @@ module.exports = {
 			);
 		}
 
-		function validateURL(textval) {
-			const urlregex = /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/;
-			return urlregex.test(textval);
-		}
-
 		function embed(matchRow) {
 			console.log(matchRow);
 			message.channel.send({ embed: {
@@ -121,6 +116,7 @@ module.exports = {
 				description: 'Some description here',
 				thumbnail: {
 					url: `${matchRow[55]}`,
+					height: 200,
 				},
 				fields: [
 					{
