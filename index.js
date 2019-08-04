@@ -16,9 +16,11 @@ const cooldowns = new Discord.Collection();
 
 client.once('ready', () => {
 	console.log('Ready!');
+	scheduledMessage2(message);
+	scheduledMessage(message);
 });
 
-client.once('message', message => {
+client.on('message', message => {
 
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -72,8 +74,6 @@ client.once('message', message => {
 		message.reply('there was an error trying to execute that command!');
 	}
 
-	scheduledMessage2(message);
-	scheduledMessage(message);
 });
 
 function scheduledMessage2(message) {
