@@ -103,7 +103,6 @@ module.exports = {
 		}
 
 		function embed(matchRow) {
-			console.log(`${matchRow[55]}`);
 			message.channel.send({ embed: {
 				color: 0x0099ff,
 				title: `${matchRow[0]}` + ': ' + `${matchRow[1]}`,
