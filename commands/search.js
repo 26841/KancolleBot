@@ -6,7 +6,7 @@ const TOKEN_PATH = 'token.json';
 // const Discord = require('discord.js');
 
 module.exports = {
-	name: 'search-test',
+	name: 'search',
 	description: 'Sheet Search Test',
 	execute(message, args) {
 		if (!args.length) {
