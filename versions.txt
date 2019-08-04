@@ -1,3 +1,6 @@
+1.0.3   8/3/2019
+     Made searching more robust
+
 1.0.2   8/2/2019
      Updated googleapis, added search function
 
