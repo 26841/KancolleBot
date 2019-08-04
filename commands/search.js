@@ -80,7 +80,7 @@ module.exports = {
 						const properName = toTitleCase(name);
 						matchRow = rows.find(row => row[1] == properName);
 					}
-					if (!matchRow) {
+					if (typeof matchRow !== 'undefined') {
 						return message.reply('Not found!');
 					}
 					embed(matchRow);
