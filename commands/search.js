@@ -71,7 +71,6 @@ module.exports = {
 					let matchRow;
 					if (!isNaN(args)) {
 						matchRow = rows.find(row => row[0] == args);
-						console.log(matchRow);
 						if (matchRow == null || `${matchRow[1]}` == 'NO DATA') {
 							return message.reply('That ID does not have a corresponding kanmusu yet!');
 						}
@@ -80,6 +79,9 @@ module.exports = {
 						const name = args.join(' ');
 						const properName = toTitleCase(name);
 						matchRow = rows.find(row => row[1] == properName);
+						if (matchRow == null || properName.equalsIgnoreCase('NO DATA')) {
+							return message.reply('Please check spelling!');
+						}
 					}
 					embed(matchRow);
 					// message.channel.send('#, Name:, 名前, Seiyuu, Artist, Rarity, Class, Type, Implementation Date, Birthday, Current Age');
