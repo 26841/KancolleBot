@@ -18,8 +18,8 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
-client.on('message', message => {
-	
+client.once('message', message => {
+
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).split(/ +/);
@@ -66,13 +66,21 @@ client.on('message', message => {
 
 	try {
 		command.execute(message, args);
-	} catch (error) {
+	}
+	catch (error) {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');
 	}
-	
+
+	scheduledMessage2(message);
 	scheduledMessage(message);
 });
+
+function scheduledMessage2(message) {
+	cron.schedule('0 * * * * *', () => {
+		message.channel.send('running a task every minute');
+	});
+}
 
 function scheduledMessage(message) {
 	cron.schedule('0 0 * * * *', () => {
