@@ -119,7 +119,7 @@ module.exports = {
 				},
 				description: 'Some description here',
 				thumbnail: {
-					url: 'https://vignette.wikia.nocookie.net/kancolle/images/2/2c/Nagato_Full.png/revision/latest?cb=20180817193225',
+					url: `${matchRow[55]}`,
 				},
 				fields: [
 					{
