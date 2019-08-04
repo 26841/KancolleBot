@@ -144,7 +144,7 @@ module.exports = {
 					},
 				],
 				image: {
-					url: 'https://i.imgur.com/wSTFkRM.png',
+					url: `${matchRow[55]}`,
 				},
 				timestamp: new Date(),
 				footer: {
