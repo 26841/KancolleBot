@@ -108,7 +108,7 @@ module.exports = {
 		}
 
 		function embed(matchRow) {
-			console.log(`${matchRow[0]}`);
+			const newURL = validateURL(`${matchRow[55]}`);
 			message.channel.send({ embed: {
 				color: 0x0099ff,
 				title: `${matchRow[0]}` + ': ' + `${matchRow[1]}`,
@@ -120,7 +120,7 @@ module.exports = {
 				},
 				description: 'Some description here',
 				thumbnail: {
-					url: validateURL(`${matchRow[55]}`),
+					url: newURL,
 				},
 				fields: [
 					{
