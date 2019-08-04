@@ -74,14 +74,14 @@ module.exports = {
 						if (`${matchRow[1]}` == 'NO DATA') {
 							return message.reply('That ID does not have a corresponding kanmusu yet!');
 						}
+						else if(!matchRow) {
+							return message.reply('That ID does not have a corresponding kanmusu yet!');
+						}
 					}
 					else {
 						const name = args.join(' ');
 						const properName = toTitleCase(name);
 						matchRow = rows.find(row => row[1] == properName);
-					}
-					if (typeof matchRow !== 'undefined') {
-						return message.reply('Not found!');
 					}
 					embed(matchRow);
 					// message.channel.send('#, Name:, 名前, Seiyuu, Artist, Rarity, Class, Type, Implementation Date, Birthday, Current Age');
