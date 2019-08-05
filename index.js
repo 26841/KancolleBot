@@ -19,6 +19,10 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
+	
+	if(!message.author.bot && message.content.toLowerCase().includes('poi')) {
+        	message.channel.send('Poi!');
+    	}
 
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
