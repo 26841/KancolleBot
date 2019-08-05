@@ -20,6 +20,11 @@ client.once('ready', () => {
 
 client.on('message', message => {
 
+	const str_pos = message.indexOf('word');
+	if (str_pos > -1) {
+		message.channel.send('Poi!');
+	}
+
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).split(/ +/);
