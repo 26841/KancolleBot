@@ -76,7 +76,6 @@ client.on('message', message => {
 		message.reply('there was an error trying to execute that command!');
 	}
 	
-	scheduledMessage2(message);
 
 });
 
