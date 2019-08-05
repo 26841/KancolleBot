@@ -16,13 +16,14 @@ const cooldowns = new Discord.Collection();
 
 client.once('ready', () => {
 	console.log('Ready!');
+	client.channels.get('598301679464742921').send('Hello world.');
 });
 
 client.on('message', message => {
-	
+
 	if(!message.author.bot && message.content.toLowerCase().includes('poi')) {
-        	message.channel.send('Poi!');
-    	}
+		message.channel.send('Poi!');
+	}
 
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
