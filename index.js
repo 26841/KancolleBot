@@ -16,7 +16,7 @@ const cooldowns = new Discord.Collection();
 
 client.once('ready', () => {
 	console.log('Ready!');
-	client.channels.get('598301679464742921').send('Hello world.');
+	client.channels.get('598301679464742921').send('Ready!');
 });
 
 client.on('message', message => {
