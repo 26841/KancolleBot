@@ -63,7 +63,7 @@ module.exports = {
 			const sheets = google.sheets({ version: 'v4', auth });
 			sheets.spreadsheets.values.get({
 				spreadsheetId: '1UG3571gvb8E5arKOPdmB80MW_H91HPqaqDzKv0yPkTc',
-				range: 'Sheet4!B5:BE',
+				range: 'Sheet4!B5:CD',
 			}, (err, res) => {
 				if (err) return console.log('The API returned an error: ' + err);
 				const rows = res.data.values;
@@ -104,8 +104,7 @@ module.exports = {
 
 		function embed(matchRow) {
 			const date = new Date();
-			const hour = date.getHours() + 55;
-			console.log(`${matchRow[hour]}`);
+			console.log(`${matchRow[date.getHours() + 55]}`);
 			console.log(`${matchRow[80]}`);
 			message.channel.send({ embed: {
 				color: 0x0099ff,
