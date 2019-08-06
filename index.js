@@ -85,7 +85,7 @@ client.on('message', message => {
 function scheduledMessageTest() {
 	const date = new Date();
 	const currDate = date.getMonth() + '-' + date.getDate();
-	const dates = new Map([['8-6', 'test'], ['8-7', 'test2']]);
+	const dates = new Map([['7-6', 'test'], ['7-7', 'test2']]);
 	if (dates.has(currDate)) {
 		client.channels.get('ID HERE').send(dates.get(currDate));
 	}
