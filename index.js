@@ -83,12 +83,14 @@ client.on('message', message => {
 });
 
 function scheduledMessageTest() {
-	const date = new Date();
-	const currDate = date.getMonth() + '-' + date.getDate();
-	const dates = new Map([['7-6', 'test'], ['7-7', 'test2']]);
-	if (dates.has(currDate)) {
-		client.channels.get('ID HERE').send(dates.get(currDate));
-	}
+	cron.schedule('0 0 0 * * *', () => {
+		const date = new Date();
+		const currDate = date.getMonth() + '-' + date.getDate();
+		const dates = new Map([['7-6', 'test'], ['7-7', 'test2']]);
+		if (dates.has(currDate)) {
+			client.channels.get('598301679464742921').send(dates.get(currDate));
+		}
+		});
 }
 
 function scheduledMessage2() {
