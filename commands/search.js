@@ -149,7 +149,7 @@ module.exports = {
 				},
 				timestamp: date,
 				footer: {
-					text: `${matchRow[date.getUTCHours() + 55]}`,
+					text: `${matchRow[date.getHours() + 55]}`,
 					icon_url: 'https://i.imgur.com/wSTFkRM.png',
 				},
 			} });
