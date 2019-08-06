@@ -18,6 +18,7 @@ client.once('ready', () => {
 	console.log('Ready!');
 	client.channels.get('598301679464742921').send('Ready!');
 	scheduledMessage();
+	scheduledMessageTest();
 });
 
 client.on('message', message => {
@@ -77,9 +78,18 @@ client.on('message', message => {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');
 	}
-	
+
 
 });
+
+function scheduledMessageTest() {
+	const date = new Date();
+	const currDate = date.getMonth() + '-' + date.getDate();
+	const dates = new Map([['8-6', 'test'], ['8-7', 'test2']]);
+	if (dates.has(currDate)) {
+		client.channels.get('ID HERE').send(dates.get(currDate));
+	}
+}
 
 function scheduledMessage2() {
 	cron.schedule('0 * * * * *', () => {
