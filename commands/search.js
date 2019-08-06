@@ -104,6 +104,8 @@ module.exports = {
 
 		function embed(matchRow) {
 			const date = new Date();
+			console.log(date.getUTCHours() + 55);
+			console.log(date.getHours() + 55);
 			message.channel.send({ embed: {
 				color: 0x0099ff,
 				title: `${matchRow[0]}` + ': ' + `${matchRow[1]}`,
