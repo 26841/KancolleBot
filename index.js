@@ -18,7 +18,6 @@ client.once('ready', () => {
 	console.log('Ready!');
 	client.channels.get('598301679464742921').send('Ready!');
 	scheduledMessage();
-	scheduledMessage2();
 });
 
 client.on('message', message => {
