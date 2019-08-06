@@ -116,8 +116,7 @@ module.exports = {
 				},
 				description: 'Some description here',
 				thumbnail: {
-					url: `${matchRow[55]}`,
-					height: 800,
+					url: `${matchRow[80]}`,
 				},
 				fields: [
 					{
