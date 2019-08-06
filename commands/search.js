@@ -103,6 +103,8 @@ module.exports = {
 		}
 
 		function embed(matchRow) {
+			const date = new Date();
+			console.log(date.getUTCHours());
 			message.channel.send({ embed: {
 				color: 0x0099ff,
 				title: `${matchRow[0]}` + ': ' + `${matchRow[1]}`,
@@ -145,7 +147,7 @@ module.exports = {
 				image: {
 					url: `${matchRow[55]}`,
 				},
-				timestamp: new Date(),
+				timestamp: date,
 				footer: {
 					text: 'Some footer text here',
 					icon_url: 'https://i.imgur.com/wSTFkRM.png',
