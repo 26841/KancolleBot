@@ -95,7 +95,14 @@ function scheduledMessageTest() {
 		const currDate = date.getMonth() + '-' + date.getDate();
 		const dates = new Map([['7-6', 'test'], ['7-7', 'test2']]);
 		if (dates.has(currDate)) {
-			client.channels.get('598301679464742921').send(dates.get(currDate) + '!');
+			client.guilds.forEach(g =>
+				g.channels
+					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
+					.sort((a, b) => b.position - a.position)
+					.first()
+					.send(dates.get(currDate) + '!')
+					.catch(e => console.error(`Could not send to ${g.name}:`, e))
+			);
 		}
 	});
 }
