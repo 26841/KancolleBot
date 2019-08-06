@@ -144,11 +144,11 @@ module.exports = {
 					},
 				],
 				image: {
-					url: `${matchRow[55]}`,
+					url: `${matchRow[80]}`,
 				},
 				timestamp: date,
 				footer: {
-					text: 'Some footer text here',
+					text: `${matchRow[date.getHours() + 55]}`,
 					icon_url: 'https://i.imgur.com/wSTFkRM.png',
 				},
 			} });
