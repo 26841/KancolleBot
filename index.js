@@ -16,7 +16,16 @@ const cooldowns = new Discord.Collection();
 
 client.once('ready', () => {
 	console.log('Ready!');
-	client.channels.get('598301679464742921').send('Ready!');
+	client.guilds.forEach(g =>
+		g.channels
+			.filter(
+				c =>
+					c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
+			.sort((a, b) => b.position - a.position)
+			.first()
+			.send('Ready!')
+			.catch(e => console.error(`Could not send to ${g.name}:`, e))
+	);
 	scheduledMessage();
 	scheduledMessageTest();
 });
@@ -90,7 +99,7 @@ function scheduledMessageTest() {
 		if (dates.has(currDate)) {
 			client.channels.get('598301679464742921').send(dates.get(currDate));
 		}
-		});
+	});
 }
 
 function scheduledMessage2() {
