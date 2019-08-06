@@ -18,9 +18,7 @@ client.once('ready', () => {
 	console.log('Ready!');
 	client.guilds.forEach(g =>
 		g.channels
-			.filter(
-				c =>
-					c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
+			.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
 			.sort((a, b) => b.position - a.position)
 			.first()
 			.send('Ready!')
@@ -112,9 +110,7 @@ function scheduledMessage() {
 	cron.schedule('0 0 * * * *', () => {
 		client.guilds.forEach(g =>
 			g.channels
-				.filter(
-					c =>
-						c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
+				.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
 				.sort((a, b) => b.position - a.position)
 				.first()
 				.send('running a task every hour')
