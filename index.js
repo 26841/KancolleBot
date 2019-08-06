@@ -110,7 +110,16 @@ function scheduledMessage2() {
 
 function scheduledMessage() {
 	cron.schedule('0 0 * * * *', () => {
-		client.channels.get('598301679464742921').send('running a task every hour');
+		client.guilds.forEach(g =>
+			g.channels
+				.filter(
+					c =>
+						c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
+				.sort((a, b) => b.position - a.position)
+				.first()
+				.send('running a task every hour')
+				.catch(e => console.error(`Could not send to ${g.name}:`, e))
+		);
 	});
 }
 
