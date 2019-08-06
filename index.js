@@ -17,6 +17,8 @@ const cooldowns = new Discord.Collection();
 client.once('ready', () => {
 	console.log('Ready!');
 	client.channels.get('598301679464742921').send('Ready!');
+	scheduledMessage();
+	scheduledMessage2();
 });
 
 client.on('message', message => {
@@ -80,15 +82,15 @@ client.on('message', message => {
 
 });
 
-function scheduledMessage2(message) {
+function scheduledMessage2() {
 	cron.schedule('0 * * * * *', () => {
-		message.channel.send('running a task every minute');
+		client.channels.get('598301679464742921').send('running a task every minute');
 	});
 }
 
-function scheduledMessage(message) {
+function scheduledMessage() {
 	cron.schedule('0 0 * * * *', () => {
-		message.channel.send('running a task every hour');
+		client.channels.get('598301679464742921').send('running a task every hour');
 	});
 }
 
