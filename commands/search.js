@@ -151,7 +151,7 @@ module.exports = {
 				},
 				timestamp: date,
 				footer: {
-					text: `${matchRow[date.getHours() + 64]}`,
+					text: `${matchRow[hour]}`,
 					icon_url: 'https://i.imgur.com/wSTFkRM.png',
 				},
 			} });
