@@ -92,7 +92,7 @@ function scheduledMessageTest() {
 	cron.schedule('0 0 12 * * *', () => {
 		const date = new Date();
 		const currDate = date.getMonth() + '-' + date.getDate();
-		const dates = new Map([['7-6', 'test'], ['7-7', 'test2']]);
+		const dates = new Map([['7-8', 'test'], ['7-9', 'test2']]);
 		if (dates.has(currDate)) {
 			client.guilds.forEach(g =>
 				g.channels
