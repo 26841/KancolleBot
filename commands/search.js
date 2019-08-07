@@ -104,10 +104,7 @@ module.exports = {
 
 		function embed(matchRow) {
 			const date = new Date();
-			let hour = date.getHours + 64;
-			if (hour > 14) {
-				hour = hour - 24;
-			}
+			const hour = 64 + date.getHours % 15 - (date.getHours / 15) * 9;
 			console.log(hour);
 			message.channel.send({ embed: {
 				color: 0x0099ff,
