@@ -108,6 +108,7 @@ module.exports = {
 			if (hour > 14) {
 				hour = hour - 24;
 			}
+			console.log(hour);
 			message.channel.send({ embed: {
 				color: 0x0099ff,
 				title: `${matchRow[0]}` + ': ' + `${matchRow[1]}`,
