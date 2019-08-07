@@ -24,7 +24,6 @@ client.once('ready', () => {
 			.send('Ready!')
 			.catch(e => console.error(`Could not send to ${g.name}:`, e))
 	);
-	scheduledMessage();
 	scheduledMessageTest();
 });
 
