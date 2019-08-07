@@ -92,14 +92,14 @@ function scheduledMessageTest() {
 	cron.schedule('0 0 11 * * *', () => {
 		const date = new Date();
 		const currDate = date.getMonth() + '-' + date.getDate();
-		const dates = new Map([['7-8', 'test'], ['7-9', 'test2']]);
+		const dates = new Map([['7-7', '7-7'], ['7-8', '7-8'], ['7-9', '7-9']]);
 		if (dates.has(currDate)) {
 			client.guilds.forEach(g =>
 				g.channels
 					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
 					.sort((a, b) => b.position - a.position)
 					.first()
-					.send(dates.get(currDate) + '!')
+					.send('The current date at UTC-12 is' + dates.get(currDate))
 					.catch(e => console.error(`Could not send to ${g.name}:`, e))
 			);
 		}
