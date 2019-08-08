@@ -10,6 +10,8 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
+	const date = new Date();
+	console.log((date.getMonth() + 1) + '-' + (date.getDate() + 1));
 }
 
 const cooldowns = new Discord.Collection();
@@ -91,15 +93,15 @@ client.on('message', message => {
 function scheduledMessageTest() {
 	cron.schedule('0 0 12 * * *', () => {
 		const date = new Date();
-		const currDate = date.getMonth() + '-' + date.getDate();
-		const dates = new Map([['7-7', '7-8'], ['7-8', '7-9'], ['7-9', '7-10']]);
+		const currDate = (date.getMonth() + 1) + '-' + (date.getDate() + 1);
+		const dates = new Map([['8-8', '8-8'], ['8-9', '8-9'], ['8-10', '8-10']]);
 		if (dates.has(currDate)) {
 			client.guilds.forEach(g =>
 				g.channels
 					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
 					.sort((a, b) => b.position - a.position)
 					.first()
-					.send('The current date at UTC-12 should be' + dates.get(currDate))
+					.send('The current date at UTC+12 should be ' + dates.get(currDate))
 					.catch(e => console.error(`Could not send to ${g.name}:`, e))
 			);
 		}
