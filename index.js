@@ -10,8 +10,6 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
-	const date = new Date();
-	console.log((date.getMonth() + 1) + '-' + (date.getDate() + 1));
 }
 
 const cooldowns = new Discord.Collection();
@@ -26,6 +24,8 @@ client.once('ready', () => {
 			.send('Ready!')
 			.catch(e => console.error(`Could not send to ${g.name}:`, e))
 	);
+	const date = new Date();
+	console.log((date.getMonth() + 1) + '-' + (date.getDate() + 1));
 	scheduledMessageTest();
 });
 
