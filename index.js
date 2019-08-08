@@ -89,7 +89,7 @@ client.on('message', message => {
 });
 
 function scheduledMessageTest() {
-	cron.schedule('0 0 11 * * *', () => {
+	cron.schedule('0 0 12 * * *', () => {
 		const date = new Date();
 		const currDate = date.getMonth() + '-' + date.getDate();
 		const dates = new Map([['7-7', '7-8'], ['7-8', '7-9'], ['7-9', '7-10']]);
