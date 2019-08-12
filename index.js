@@ -2,7 +2,7 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const cron = require('node-cron');
-const patt = /poi/i;
+const patt = /poi[^\w\s]|(.)\1/i;
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
