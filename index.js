@@ -32,8 +32,7 @@ client.once('ready', () => {
 
 client.on('message', message => {
 
-	const result = message.match(patt);
-	if(!message.author.bot && result) {
+	if(!message.author.bot && String(message).match(patt)) {
 		message.channel.send('Poi!');
 	}
 
