@@ -2,6 +2,7 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const cron = require('node-cron');
+const patt = /poi/i;
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
@@ -31,7 +32,8 @@ client.once('ready', () => {
 
 client.on('message', message => {
 
-	if(!message.author.bot && message.content.toLowerCase().includes('poi')) {
+	const result = message.match(patt);
+	if(!message.author.bot && result) {
 		message.channel.send('Poi!');
 	}
 
