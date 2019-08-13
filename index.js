@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const cron = require('node-cron');
 const patt = /p+o+i+/i;
+const poi = ['Poi!', 'POI!', 'Pooooiiiii!', 'POOOOIIIII!', 'ぽい!', 'ぽーい!'];
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
@@ -33,7 +34,7 @@ client.once('ready', () => {
 client.on('message', message => {
 
 	if(!message.author.bot && String(message).match(patt)) {
-		message.channel.send('Poi!');
+		message.channel.send(poi[Math.floor(Math.random() * poi.length)]);
 	}
 
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
