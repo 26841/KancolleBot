@@ -103,6 +103,7 @@ module.exports = {
 		}
 
 		function embed(matchRow) {
+			console.log(matchRow[81] + 'png');
 			const date = new Date();
 			const hour = 64 + date.getHours() % 15 - Math.floor(date.getHours() / 15) * 9;
 			message.channel.send({ embed: {
