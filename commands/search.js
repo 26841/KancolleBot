@@ -103,7 +103,7 @@ module.exports = {
 		}
 
 		function embed(matchRow) {
-			console.log(matchRow[81] + 'png');
+			console.log(matchRow[81] + '.png');
 			const date = new Date();
 			const hour = 64 + date.getHours() % 15 - Math.floor(date.getHours() / 15) * 9;
 			message.channel.send({ embed: {
@@ -112,7 +112,7 @@ module.exports = {
 				url: matchRow[82],
 				description: 'Some description here',
 				thumbnail: {
-					url: matchRow[81] + 'png',
+					url: matchRow[81] + '.png',
 				},
 				fields: [
 					{
