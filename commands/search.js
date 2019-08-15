@@ -63,7 +63,7 @@ module.exports = {
 			const sheets = google.sheets({ version: 'v4', auth });
 			sheets.spreadsheets.values.get({
 				spreadsheetId: '1UG3571gvb8E5arKOPdmB80MW_H91HPqaqDzKv0yPkTc',
-				range: 'Sheet4!B5:CE',
+				range: 'Sheet4!B5:CF',
 			}, (err, res) => {
 				if (err) return console.log('The API returned an error: ' + err);
 				const rows = res.data.values;
@@ -108,7 +108,7 @@ module.exports = {
 			message.channel.send({ embed: {
 				color: 0x0099ff,
 				title: `${matchRow[0]}` + ': ' + `${matchRow[1]}`,
-				url: 'https://discord.js.org',
+				url: matchRow[82],
 				author: {
 					name: 'Some name',
 					icon_url: matchRow[81],
