@@ -111,7 +111,7 @@ module.exports = {
 				url: matchRow[82],
 				description: 'Some description here',
 				thumbnail: {
-					url: `${matchRow[81]}`,
+					url: matchRow[81] + 'png',
 				},
 				fields: [
 					{
