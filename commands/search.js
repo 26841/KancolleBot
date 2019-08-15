@@ -109,11 +109,6 @@ module.exports = {
 				color: 0x0099ff,
 				title: `${matchRow[0]}` + ': ' + `${matchRow[1]}`,
 				url: matchRow[82],
-				author: {
-					name: 'Some name',
-					icon_url: matchRow[81],
-					url: String(matchRow[81]),
-				},
 				description: 'Some description here',
 				thumbnail: {
 					url: `${matchRow[81]}`,
