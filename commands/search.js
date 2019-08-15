@@ -112,7 +112,7 @@ module.exports = {
 				author: {
 					name: 'Some name',
 					icon_url: matchRow[81],
-					url: matchRow[81],
+					url: String(matchRow[81]),
 				},
 				description: 'Some description here',
 				thumbnail: {
@@ -149,7 +149,7 @@ module.exports = {
 				timestamp: date,
 				footer: {
 					text: `${matchRow[hour]}`,
-					icon_url: 'https://i.imgur.com/wSTFkRM.png',
+					icon_url: matchRow[81],
 				},
 			} });
 		}
