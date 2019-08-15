@@ -63,7 +63,7 @@ module.exports = {
 			const sheets = google.sheets({ version: 'v4', auth });
 			sheets.spreadsheets.values.get({
 				spreadsheetId: '1UG3571gvb8E5arKOPdmB80MW_H91HPqaqDzKv0yPkTc',
-				range: 'Sheet4!B5:CD',
+				range: 'Sheet4!B5:CE',
 			}, (err, res) => {
 				if (err) return console.log('The API returned an error: ' + err);
 				const rows = res.data.values;
@@ -116,7 +116,7 @@ module.exports = {
 				},
 				description: 'Some description here',
 				thumbnail: {
-					url: `${matchRow[80]}`,
+					url: `${matchRow[81]}`,
 				},
 				fields: [
 					{
