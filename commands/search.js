@@ -111,8 +111,8 @@ module.exports = {
 				url: 'https://discord.js.org',
 				author: {
 					name: 'Some name',
-					icon_url: 'https://i.imgur.com/wSTFkRM.png',
-					url: 'https://discord.js.org',
+					icon_url: matchRow[81],
+					url: matchRow[81],
 				},
 				description: 'Some description here',
 				thumbnail: {
