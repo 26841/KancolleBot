@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const cron = require('node-cron');
 const patt = /p+o+i+/i;
-const poi = ['Poi!', 'POI!', 'Pooooiiiii!', 'POOOOIIIII!', 'ぽい!', 'ぽーい!'];
+const poi = ['Poi!', '!ioP', 'POI!', 'Pooooiiiii!', 'POOOOIIIII!', 'ぽい!', 'ぽーい!'];
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
