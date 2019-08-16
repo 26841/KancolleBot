@@ -103,7 +103,8 @@ module.exports = {
 		}
 
 		function embed(matchRow) {
-			const file = new Discord.Attachment('./thumbnails/' + String(`${matchRow[1]}`) + '.png');
+			console.log(`${matchRow[1]}`.replace(/ /g, '_'));
+			const file = new Discord.Attachment('./thumbnails/' + `${matchRow[1]}`.replace(/ /g, '_') + '.png');
 			const date = new Date();
 			const hour = 64 + date.getHours() % 15 - Math.floor(date.getHours() / 15) * 9;
 			message.channel.send({
@@ -114,7 +115,7 @@ module.exports = {
 					url: matchRow[82],
 					description: 'Some description here',
 					thumbnail: {
-						url: 'attachment://' + String(`${matchRow[1]}`) + '.png',
+						url: 'attachment://' + `${matchRow[1]}`.replace(/ /g, '_') + '.png',
 					},
 					fields: [
 						{
