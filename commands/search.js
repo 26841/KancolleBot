@@ -111,7 +111,7 @@ module.exports = {
 				embed: {
 					color: 0x0099ff,
 					title: `${matchRow[0]}` + ': ' + `${matchRow[1]}`,
-					url: matchRow[81],
+					url: matchRow[82],
 					description: 'Some description here',
 					thumbnail: {
 						url: 'attachment://' + `${matchRow[1]}` + '.png',
