@@ -3,7 +3,7 @@ const readline = require('readline');
 const { google } = require('googleapis');
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 const TOKEN_PATH = 'token.json';
-// const Discord = require('discord.js');
+const Discord = require('discord.js');
 
 module.exports = {
 	name: 'search',
@@ -112,7 +112,7 @@ module.exports = {
 				url: matchRow[82],
 				description: 'Some description here',
 				thumbnail: {
-					url: matchRow[81] + '.png',
+					url: 'attachment://' + `${matchRow[1]}` + '.png',
 				},
 				fields: [
 					{
