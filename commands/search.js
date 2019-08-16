@@ -107,48 +107,50 @@ module.exports = {
 			console.log('attachment://' + `${matchRow[1]}` + '.png');
 			const date = new Date();
 			const hour = 64 + date.getHours() % 15 - Math.floor(date.getHours() / 15) * 9;
-			message.channel.send({ embed: {
-				color: 0x0099ff,
-				title: `${matchRow[0]}` + ': ' + `${matchRow[1]}`,
-				url: matchRow[82],
-				description: 'Some description here',
-				thumbnail: {
-					url: 'attachment://' + `${matchRow[1]}` + '.png',
-				},
-				fields: [
-					{
-						name: 'Regular field title',
-						value: 'Some value here',
+			message.channel.send({
+				files: [file],
+				embed: {
+					color: 0x0099ff,
+					title: `${matchRow[0]}` + ': ' + `${matchRow[1]}`,
+					url: matchRow[82],
+					description: 'Some description here',
+					thumbnail: {
+						url: 'attachment://' + `${matchRow[1]}` + '.png',
 					},
-					{
-						name: '\u200b',
-						value: '\u200b',
+					fields: [
+						{
+							name: 'Regular field title',
+							value: 'Some value here',
+						},
+						{
+							name: '\u200b',
+							value: '\u200b',
+						},
+						{
+							name: 'Inline field title',
+							value: 'Some value here',
+							inline: true,
+						},
+						{
+							name: 'Inline field title',
+							value: 'Some value here',
+							inline: true,
+						},
+						{
+							name: 'Inline field title',
+							value: 'Some value here',
+							inline: true,
+						},
+					],
+					image: {
+						url: `${matchRow[80]}`,
 					},
-					{
-						name: 'Inline field title',
-						value: 'Some value here',
-						inline: true,
+					timestamp: date,
+					footer: {
+						text: `${matchRow[hour]}`,
+						icon_url: matchRow[81],
 					},
-					{
-						name: 'Inline field title',
-						value: 'Some value here',
-						inline: true,
-					},
-					{
-						name: 'Inline field title',
-						value: 'Some value here',
-						inline: true,
-					},
-				],
-				image: {
-					url: `${matchRow[80]}`,
-				},
-				timestamp: date,
-				footer: {
-					text: `${matchRow[hour]}`,
-					icon_url: matchRow[81],
-				},
-			} });
+				} });
 		}
 	},
 };
