@@ -19,12 +19,12 @@ module.exports = {
 				for (const post of posts) {
 					message.channel.send(post.fileUrl);
 				}
+				message.channel.send('Error 1');
 			})
 			.catch(err => {
 				if (err instanceof BooruError) {
 					// It's a custom error thrown by the package
 					// Typically results from errors the boorus returns, eg. "too many tags"
-					message.channel.send('Error 1');
 					console.error(err.message);
 				}
 				else {
