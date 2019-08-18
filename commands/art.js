@@ -18,6 +18,7 @@ module.exports = {
 					for (const post of posts) {
 						message.channel.send(post.fileUrl);
 					}
+				}
 				else {
 					message.channel.send('Chickens!');
 				}
