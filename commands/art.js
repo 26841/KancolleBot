@@ -8,8 +8,6 @@ module.exports = {
 	name: 'art',
 	description: 'Get a random image from safebooru',
 	execute(message, args) {
-		console.log(args);
-		console.log(String(args));
 		if (!args.length) {
 			return message.reply('You need to provide a tag!');
 		}
