@@ -17,7 +17,7 @@ for (const file of commandFiles) {
 const cooldowns = new Discord.Collection();
 
 client.once('ready', () => {
-	console.log('Ready!');
+	console.log('Update Successful!');
 	client.guilds.forEach(g =>
 		g.channels
 			.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
