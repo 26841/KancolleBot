@@ -13,13 +13,13 @@ module.exports = {
 		if (!args.length) {
 			return message.reply('You need to provide a tag!');
 		}
-		Booru.search(site, args, { limit: 1, random: true })
+		Booru.search(site, args, { limit: 2, random: true })
 			.then(posts => {
 				// Log the direct link to each image
 				for (const post of posts) {
 					return message.channel.send(post.fileUrl);
 				}
-				message.channel.send('Error 1');
+				message.channel.send('Invalid tag!');
 			})
 			.catch(err => {
 				if (err instanceof BooruError) {
