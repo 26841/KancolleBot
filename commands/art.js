@@ -14,10 +14,13 @@ module.exports = {
 		Booru.search(site, args, { limit: 1, random: true })
 			.then(posts => {
 				// Log the direct link to each image
-				for (const post of posts) {
-					return message.channel.send(post.fileUrl);
+				if (posts) {
+					for (const post of posts) {
+						message.channel.send(post.fileUrl);
+					}
+				else {
+					message.channel.send('Chickens!');
 				}
-				message.channel.send('Invalid tag!');
 			})
 			.catch(err => {
 				if (err instanceof BooruError) {
