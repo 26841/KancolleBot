@@ -28,7 +28,7 @@ client.once('ready', () => {
 	const date = new Date();
 	console.log((date.getMonth() + 1) + '-' + (date.getDate() + 1));
 	scheduledMessageTest();
-	client.user.setActivity("Test"); 
+	client.user.setActivity(".help for commands"); 
 });
 
 client.on('message', message => {
