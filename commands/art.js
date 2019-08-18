@@ -7,10 +7,13 @@ const site = 'safebooru';
 module.exports = {
 	name: 'art',
 	description: 'Get a random image from safebooru',
-	execute(message) {
-		console.log(message);
-		console.log(String(message));
-		Booru.search(site, String(message), { limit: 1, random: true })
+	execute(message, args) {
+		console.log(args);
+		console.log(String(args));
+		if (!args.length) {
+			return message.reply('You need to provide a tag!');
+		}
+		Booru.search(site, String(args), { limit: 1, random: true })
 			.then(posts => {
 				// Log the direct link to each image
 				for (const post of posts) {
