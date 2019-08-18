@@ -8,12 +8,12 @@ module.exports = {
 	name: 'art',
 	description: 'Get a random image from safebooru',
 	execute(message, args) {
-		Booru.search(site, args, { limit: 1, random: false })
+		Booru.search(site, args, { limit: 1, random: true })
 			.then(posts => {
 				// Log the direct link to each image
 				for (const post of posts) {
 					if (post) {
-						console.log(post.fileUrl);
+						message.channel.send(post.fileUrl);
 					}
 					else {
 						message.channel.send('Chickens!');
