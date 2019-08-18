@@ -11,6 +11,7 @@ module.exports = {
 		Booru.search(site, args, { limit: 1, random: true })
 			.then(posts => {
 				// Log the direct link to each image
+				console.log(posts);
 				for (const post of posts) {
 					console.log(post);
 					console.log(post.fileUrl);
