@@ -17,7 +17,7 @@ module.exports = {
 			.then(posts => {
 				// Log the direct link to each image
 				for (const post of posts) {
-					message.channel.send(post.fileUrl);
+					return message.channel.send(post.fileUrl);
 				}
 				message.channel.send('Error 1');
 			})
