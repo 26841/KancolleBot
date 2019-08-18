@@ -5,69 +5,24 @@ module.exports = {
 		message.channel.send({
 			embed: {
 				color: 0x0099ff,
-				title: 'Some title',
-				description: 'Some description here',
+				title: 'Information Groups',
+				description: 'Here\'s a list of all the searchable kanmusu info groups!',
 				fields: [
 					{
-						name: 'Regular field title',
-						value: 'Some value here',
+						name: '.bio',
+						value: 'Info about a kanmusu\'s biography',
 					},
 					{
-						name: '\u200b',
-						value: '\u200b',
+						name: '.remodel (not yet implemented)',
+						value: 'Info about a kanmusu\'s remodelling',
 					},
 					{
-						name: 'Inline field title',
-						value: 'Some value here',
-						inline: true,
+						name: '.stats (not yet implemented)',
+						value: 'Info about a kanmusu\'s stats',
 					},
 					{
-						name: 'Inline field title',
-						value: 'Some value here',
-						inline: true,
-					},
-					{
-						name: 'Inline field title',
-						value: 'Some value here',
-						inline: true,
-					},
-				],
-			},
-		});
-	},
-};
-module.exports = {
-	name: 'search',
-	description: 'Lists all the searchable information groups',
-	execute(message) {
-		message.channel.send({
-			embed: {
-				color: 0x0099ff,
-				title: 'Some title',
-				description: 'Some description here',
-				fields: [
-					{
-						name: 'Regular field title',
-						value: 'Some value here',
-					},
-					{
-						name: '\u200b',
-						value: '\u200b',
-					},
-					{
-						name: 'Inline field title',
-						value: 'Some value here',
-						inline: true,
-					},
-					{
-						name: 'Inline field title',
-						value: 'Some value here',
-						inline: true,
-					},
-					{
-						name: 'Inline field title',
-						value: 'Some value here',
-						inline: true,
+						name: '.factory (not yet implemented)',
+						value: 'Info about a kanmusu\'s scrap and modernization stats',
 					},
 				],
 			},
