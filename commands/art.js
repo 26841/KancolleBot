@@ -7,21 +7,17 @@ const site = 'safebooru';
 module.exports = {
 	name: 'art',
 	description: 'Get a random image from safebooru',
-	execute(message, args) {
-		if (!args.length) {
-			return message.reply('You need to provide a tag!');
-		}
-		Booru.search(site, args, { limit: 1, random: true })
+	execute(message) {
+		Booru.search(site, message, { limit: 1, random: false })
 			.then(posts => {
 				// Log the direct link to each image
-				console.log(posts);
-				if (posts) {
-					for (const post of posts) {
-						message.channel.send(post.fileUrl);
+				for (const post of posts) {
+					if (post) {
+						console.log(post.fileUrl);
 					}
-				}
-				else {
-					message.channel.send('Chickens!');
+					else {
+						message.channel.send('Chickens!');
+					}
 				}
 			})
 			.catch(err => {
