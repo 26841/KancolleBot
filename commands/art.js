@@ -8,7 +8,7 @@ module.exports = {
 	name: 'art',
 	description: 'Get a random image from safebooru',
 	execute(message) {
-		Booru.search(site, message, { limit: 1, random: false })
+		Booru.search(site, String(message), { limit: 1, random: true })
 			.then(posts => {
 				// Log the direct link to each image
 				for (const post of posts) {
