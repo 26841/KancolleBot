@@ -4,6 +4,7 @@ module.exports = {
 	execute(message) {
 		console.log('NSFW test');
 		if (message.channel.nsfw) {
+			console.log('NSFW test 2');
 			message.channel.send('Test');
 		}
 	},
