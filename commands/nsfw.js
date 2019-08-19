@@ -8,7 +8,10 @@ module.exports = {
 	name: 'nsfw',
 	description: 'Get a random nsfw image from xbooru (only functional in nsfw channels)',
 	execute(message, args) {
-		if (message.channel.nsfw) {
+		if (!message.channel.nsfw) {
+			message.channel.reply('I can\'t execute that command in a non-nsfw channel!');
+		}
+		else {
 			Booru.search(site, args, { limit: 2, random: true })
 				.then(posts => {
 					// Log the direct link to each image
@@ -35,9 +38,6 @@ module.exports = {
 						console.error(err);
 					}
 				});
-		}
-		else {
-			message.channel.reply('I can\'t execute that command in a non-nsfw channel!');
 		}
 	},
 };
