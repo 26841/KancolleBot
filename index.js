@@ -25,6 +25,7 @@ client.once('ready', () => {
 			.send('Update Successful!')
 			.catch(e => console.error(`Could not send to ${g.name}:`, e))
 	);
+	console.log('Ready!');
 	const date = new Date();
 	console.log((date.getMonth() + 1) + '-' + (date.getDate() + 1));
 	scheduledMessageTest();
