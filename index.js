@@ -22,7 +22,7 @@ client.once('ready', () => {
 			.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
 			.sort((a, b) => b.position - a.position)
 			.first()
-			.send('Update Successful!')
+			.send('Update/Reboot Successful!')
 			.catch(e => console.error(`Could not send to ${g.name}:`, e))
 	);
 	console.log('Ready!');
