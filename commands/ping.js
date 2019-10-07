@@ -3,6 +3,9 @@ module.exports = {
 	description: 'Ping!',
 	cooldown: 5,
 	execute(message, args) {
-		message.channel.send('Pong.');
+		var start = Date.now();
+		message.channel.send('Poi!').then(function(ping){
+			var stop = Date.now();
+			ping.edit(`Poi! ${stop - start}ms`);;
 	},
 };
