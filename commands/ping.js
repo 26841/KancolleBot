@@ -6,6 +6,7 @@ module.exports = {
 		var start = Date.now();
 		message.channel.send('Poi!').then(function(ping){
 			var stop = Date.now();
-			ping.edit(`Poi! ${stop - start}ms`);;
+			ping.edit(`Poi! ${stop - start}ms`);
+		});
 	},
 };
