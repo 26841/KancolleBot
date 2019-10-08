@@ -104,7 +104,7 @@ module.exports = {
 
 		function embed(matchRow) {
 			console.log(`${matchRow[1]}`.replace(/ /g, '_'));
-			const file = new Discord.Attachment('./thumbnails/' + `${matchRow[1]}`.replace(/ /g, '_') + '.png');
+			const file = new Discord.Attachment('https://github.com/26841/Kancolle_Icons/Base/' + `${matchRow[1]}`.replace(/ /g, '_') + '.png');
 			const date = new Date();
 			const hour = 64 + date.getHours() % 15 - Math.floor(date.getHours() / 15) * 9;
 			message.channel.send({
