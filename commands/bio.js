@@ -104,7 +104,7 @@ module.exports = {
 
 		function embed(matchRow) {
 			console.log(`${matchRow[1]}`.replace(/ /g, '_'));
-			const file = new Discord.Attachment('https://github.com/26841/Kancolle_Icons/blob/master/Base/' + `${matchRow[1]}`.replace(/ /g, '_') + '.png');
+			const file = new Discord.Attachment('https://raw.githubusercontent.com/26841/Kancolle_Icons/master/Base/' + `${matchRow[1]}`.replace(/ /g, '_') + '.png');
 			console.log(file);
 			const date = new Date();
 			const hour = 64 + date.getHours() % 15 - Math.floor(date.getHours() / 15) * 9;
@@ -116,7 +116,7 @@ module.exports = {
 					url: matchRow[82],
 					description: 'Some description here',
 					thumbnail: {
-						url: 'https://github.com/26841/Kancolle_Icons/blob/master/Base/' + `${matchRow[1]}`.replace(/ /g, '_') + '.png',
+						url: 'attachment://' + `${matchRow[1]}`.replace(/ /g, '_') + '.png',
 					},
 					fields: [
 						{
@@ -149,7 +149,7 @@ module.exports = {
 					timestamp: date,
 					footer: {
 						text: `${matchRow[hour]}`,
-						icon_url: 'https://github.com/26841/Kancolle_Icons/blob/master/Base/' + `${matchRow[1]}` + '.png',
+						icon_url: 'attachment://' + `${matchRow[1]}` + '.png',
 					},
 				} });
 		}
