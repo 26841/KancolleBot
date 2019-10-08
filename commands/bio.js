@@ -116,7 +116,7 @@ module.exports = {
 					url: matchRow[82],
 					description: 'Some description here',
 					thumbnail: {
-						url: 'attachment://' + `${matchRow[1]}`.replace(/ /g, '_') + '.png',
+						url: 'https://github.com/26841/Kancolle_Icons/blob/master/Base/' + `${matchRow[1]}`.replace(/ /g, '_') + '.png',
 					},
 					fields: [
 						{
@@ -149,7 +149,7 @@ module.exports = {
 					timestamp: date,
 					footer: {
 						text: `${matchRow[hour]}`,
-						icon_url: 'attachment://' + `${matchRow[1]}` + '.png',
+						icon_url: 'https://github.com/26841/Kancolle_Icons/blob/master/Base/' + `${matchRow[1]}` + '.png',
 					},
 				} });
 		}
