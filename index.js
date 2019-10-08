@@ -34,15 +34,9 @@ client.once('ready', () => {
 
 client.on('message', message => {
 
-<<<<<<< HEAD
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	if(!message.author.bot && String(message).match(patt)) {
-=======
-	if (!message.content.startsWith(prefix) || message.author.bot) {
-		return;
-	} else if(!message.author.bot && String(message).match(patt)) {
->>>>>>> 2df4330cdf920b4256473f77cbc3eba38ca864ec
 		message.channel.send(poi[Math.floor(Math.random() * poi.length)]);
 	}
 
