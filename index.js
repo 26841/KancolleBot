@@ -34,11 +34,12 @@ client.once('ready', () => {
 
 client.on('message', message => {
 
+	if(!message.author.bot && String(message).match(patt)) {
+		message.channel.send(poi[Math.floor(Math.random() * poi.length)]);
+	}
+
 	if (!message.content.startsWith(prefix) || message.author.bot) {
 		return;
-	}
-	else if(!message.author.bot && String(message).match(patt)) {
-		message.channel.send(poi[Math.floor(Math.random() * poi.length)]);
 	}
 
 	const args = message.content.slice(prefix.length).split(/ +/);
