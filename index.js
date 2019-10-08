@@ -33,7 +33,7 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
-
+asdf
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	if(!message.author.bot && String(message).match(patt)) {
