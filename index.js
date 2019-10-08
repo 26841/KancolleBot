@@ -29,14 +29,15 @@ client.once('ready', () => {
 	const date = new Date();
 	console.log((date.getMonth() + 1) + '-' + (date.getDate() + 1));
 	scheduledMessageTest();
-	client.user.setActivity(".help for commands");
+	client.user.setActivity('.help for commands');
 });
 
 client.on('message', message => {
-asdf
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-	if(!message.author.bot && String(message).match(patt)) {
+	if (!message.content.startsWith(prefix) || message.author.bot) {
+		return;
+	}
+	else if(!message.author.bot && String(message).match(patt)) {
 		message.channel.send(poi[Math.floor(Math.random() * poi.length)]);
 	}
 
