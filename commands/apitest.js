@@ -4,7 +4,8 @@ module.exports = {
 	name: 'apitest',
 	description: 'Test Kancolle api',
 	execute(message) {
-		let test = wiki.ship["Fubuki"];
+		const test = wiki.ship['Fubuki'];
+		console.log(test);
 		message.channel.send(`${test}`);
 	},
 };
