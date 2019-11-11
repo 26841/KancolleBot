@@ -23,7 +23,7 @@ client.once('ready', () => {
 			.sort((a, b) => b.position - a.position)
 			.first()
 			.send('Update/Reboot Successful!')
-			.catch(e => console.error(`Could not send to ${g.name}:`, e))
+			.catch(e => console.error(`Could not send to ${g.name}:`, e)),
 	);
 	console.log('Ready!');
 	const date = new Date();
@@ -98,7 +98,14 @@ client.on('message', message => {
 function scheduledMessageTest() {
 	const job = new cron('0 */10 * * * *', function() {
 		const d = new Date();
-		console.log('Every Tenth Minute:', d);
+		client.guilds.forEach(g =>
+			g.channels
+				.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
+				.sort((a, b) => b.position - a.position)
+				.first()
+				.send('Every Tenth Minute:', d)
+				.catch(e => console.error(`Could not send to ${g.name}:`, e)),
+		);
 	});
 	job.start();
 }
