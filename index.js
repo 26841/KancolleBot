@@ -96,14 +96,14 @@ client.on('message', message => {
 });
 
 function scheduledMessageTest() {
-	const job = new cron('0 0 */1 * * *', function() {
+	const job = new cron('0 */10 * * * *', function() {
 		const d = new Date();
 		client.guilds.forEach(g =>
 			g.channels
 				.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
 				.sort((a, b) => b.position - a.position)
 				.first()
-				.send('Every Hour', d)
+				.send('Every Tenth Minute:', d)
 				.catch(e => console.error(`Could not send to ${g.name}:`, e)),
 		);
 	});
