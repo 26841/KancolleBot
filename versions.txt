@@ -1,0 +1,11 @@
+1.0.3   8/3/2019
+     Made searching more robust
+
+1.0.2   8/2/2019
+     Updated googleapis, added search function
+
+1.0.1   8/1/2019
+     Addition of embed test commands, fixed !ping error
+
+1.0.0   7/30/2019
+     Migration of files to GitHub repository, test and preliminary bot files added
