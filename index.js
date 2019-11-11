@@ -96,21 +96,13 @@ client.on('message', message => {
 });
 
 function scheduledMessageTest() {
-	cron.schedule('0 0 12 * * *', () => {
-		const date = new Date();
-		const currDate = (date.getMonth() + 1) + '-' + (date.getDate() + 1);
-		const dates = new Map([['8-8', '8-8'], ['8-9', '8-9'], ['8-10', '8-10']]);
-		if (dates.has(currDate)) {
-			client.guilds.forEach(g =>
-				g.channels
-					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
-					.sort((a, b) => b.position - a.position)
-					.first()
-					.send('The current date at UTC+12 should be ' + dates.get(currDate))
-					.catch(e => console.error(`Could not send to ${g.name}:`, e))
-			);
-		}
+	console.log('Before job instantiation');
+	const job = new cron('00 00 00 * * *', function() {
+		const d = new Date();
+		console.log('Midnight:', d);
 	});
+	console.log('After job instantiation');
+	job.start();
 }
 
 function scheduledMessage2() {
