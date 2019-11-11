@@ -97,12 +97,16 @@ client.on('message', message => {
 
 function scheduledMessageTest() {
 	console.log('Before job instantiation');
-	const job = new cron('00 00 00 * * *', function() {
-		const d = new Date();
-		console.log('Midnight:', d);
+	new cron('0 0 */1 * * *', function() {
+		client.guilds.forEach(g =>
+			g.channels
+				.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
+				.sort((a, b) => b.position - a.position)
+				.first()
+				.send('Sending a message every hour!')
+				.catch(e => console.error(`Could not send to ${g.name}:`, e))
+		);
 	});
-	console.log('After job instantiation');
-	job.start();
 }
 
 function scheduledMessage2() {
