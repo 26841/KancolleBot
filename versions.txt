@@ -9,5 +9,3 @@
 
 1.0.0   7/30/2019
      Migration of files to GitHub repository, test and preliminary bot files added
-
--
