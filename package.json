@@ -9,10 +9,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@kancolle/data": "^0.190820.1",
+    "@kancolle/data": "^0.190820.2",
     "booru": "^2.0.3",
     "discord.js": "^11.5.1",
-    "eslint": "^6.0.1",
+    "eslint": "^6.6.0",
     "google-drive-sheets": "^1.3.1",
     "googleapis": "^30.0.0",
     "node-cron": "^2.0.3",
