@@ -6,6 +6,6 @@ module.exports = {
 	execute(message) {
 		const test = wiki.ship['Fubuki'];
 		console.log(test);
-		message.channel.send(`${test}`);
+		message.channel.send(test._japanese_name);
 	},
 };
