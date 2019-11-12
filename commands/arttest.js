@@ -19,7 +19,13 @@ module.exports = {
 			);
 		}
 		catch (error) {
-			console.error(error.message || error);
+			if (args.length() > 2) {
+				message.message.channel.reply('You cannot search for more than two tags at a time!');
+			}
+			else {
+				message.channel.send('Something went wrong.');
+				console.error(error.message || error);
+			}
 		}
 	},
 };
