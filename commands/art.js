@@ -16,8 +16,6 @@ module.exports = {
 				for (const post of posts) {
 					if (count === 2) { return; }
 					if (post && post.rating === 's') {
-						console.log(post);
-						console.log(post.postView);
 						message.channel.send(post.postView);
 						count++;
 					}
