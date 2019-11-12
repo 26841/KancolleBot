@@ -2,11 +2,11 @@ const Booru = require('booru');
 const { BooruError, sites } = require('booru');
 // for ES6:
 // import Booru, { search, BooruError, sites } from 'booru'
-const site = 'safebooru';
+const site = 'danbooru';
 
 module.exports = {
 	name: 'art',
-	description: 'Get a random image from safebooru',
+	description: 'Get a random image from danbooru',
 	execute(message, args) {
 		Booru.search(site, args, { limit: 2, random: true })
 			.then(posts => {
