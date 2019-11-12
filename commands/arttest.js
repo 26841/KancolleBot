@@ -10,8 +10,9 @@ module.exports = {
 	execute(message, args) {
 		Booru.search(site, args, { limit: 100, random: true })
 			.then(posts => {
+				console.log(posts);
 				// Log the direct link to each image
-				posts.filter(post => (post || {}).rating === 's')
+				posts.filter(post => post.rating === 's')
 					.slice(0, 2)
 					.forEach(post => message.channel.send(post.postView));
 			})
