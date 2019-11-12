@@ -5,6 +5,8 @@ module.exports = {
 	description: 'Reworked bio command using @kancolle/data npm',
 	cooldown: 5,
 	execute(message, args) {
-		ships.find(e => e.api_name === args).api_id;
+		const test = ships.ship[args];
+		console.log(test);
+		message.channel.send(test._japanese_name);
 	},
 };
