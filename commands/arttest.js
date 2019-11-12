@@ -8,7 +8,7 @@ module.exports = {
 	name: 'arttest',
 	description: 'Get a random image from danbooru, test using filter',
 	execute(message, args) {
-		Booru.search(site, args, { limit: 100, random: true })
+		Booru.search(site, args, { limit: 10, random: true })
 			.then(posts => {
 				console.log(posts);
 				// Log the direct link to each image
