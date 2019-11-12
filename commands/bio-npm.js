@@ -1,12 +1,12 @@
-const { ships } = require('@kancolle/data');
+const { wiki } = require('@kancolle/data');
 
 module.exports = {
-	name: 'bio-npm',
-	description: 'Reworked bio command using @kancolle/data npm',
+	name: 'apitest',
+	description: 'Test Kancolle api',
 	cooldown: 5,
 	execute(message, args) {
 		console.log(args.join(' '));
-		const test = ships.ship[args.join(' ')];
+		const test = wiki.ship[args.join(' ')];
 		console.log(test);
 		message.channel.send(test._japanese_name);
 	},
