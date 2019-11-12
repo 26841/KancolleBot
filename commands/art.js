@@ -1,36 +1,30 @@
-const Booru = require('booru');
-const { BooruError, sites } = require('booru');
+const { each } = require('bluebird');
+const _ = require('lodash');
+const { search } = require('booru');
+const site = 'danbooru';
 // for ES6:
 // import Booru, { search, BooruError, sites } from 'booru'
-const site = 'danbooru';
 
 module.exports = {
 	name: 'art',
-	description: 'Get a random image from danbooru',
-	execute(message, args) {
-		Booru.search(site, args, { limit: 10, random: true })
-			.then(posts => {
-				// Log the direct link to each image
-				console.log(posts);
-				let count = 0;
-				for (const post of posts) {
-					if (count === 2) { return; }
-					if (post && post.rating === 's') {
-						message.channel.send(post.postView);
-						count++;
-					}
-				}
-			})
-			.catch(err => {
-				if (err instanceof BooruError) {
-					// It's a custom error thrown by the package
-					// Typically results from errors the boorus returns, eg. "too many tags"
-					console.error(err.message);
-				}
-				else {
-					// This means something pretty bad happened
-					console.error(err);
-				}
-			});
+	description: 'Get two random images from danbooru',
+	async execute(message, args) {
+		try {
+			await each(
+				_(await search(site, args, { limit: 100, random: true }))
+					.filter(post => (post || {}).rating === 's')
+					.take(2),
+				post => message.channel.send(post.postView),
+			);
+		}
+		catch (error) {
+			if (args.length > 2) {
+				message.reply('You cannot search for more than two tags at a time!');
+			}
+			else {
+				message.channel.send('Something went wrong.');
+				console.error(error.message || error);
+			}
+		}
 	},
 };
