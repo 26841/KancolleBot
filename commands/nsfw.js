@@ -16,12 +16,11 @@ module.exports = {
 				.then(posts => {
 					// Log the direct link to each image
 					let count = 0;
-					console.log(posts);
 					for (const post of posts) {
 						if (count === 2) { return; }
-						console.log(post);
-						console.log(post.postView);
 						if (post && post.rating !== 's') {
+							console.log(post);
+							console.log(post.postView);
 							message.channel.send(post.postView);
 							count++;
 						}
