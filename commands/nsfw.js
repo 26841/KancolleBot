@@ -12,18 +12,18 @@ module.exports = {
 			message.reply('I can\'t execute that command in a non-nsfw channel!');
 		}
 		else {
-			Booru.search(site, args, { limit: 2, random: true })
+			Booru.search(site, args, { limit: 100, random: true })
 				.then(posts => {
 					// Log the direct link to each image
+					let count = 0;
 					console.log(posts);
 					for (const post of posts) {
+						if (count === 2) { return; }
 						console.log(post);
 						console.log(post.postView);
 						if (post && post.rating !== 's') {
 							message.channel.send(post.postView);
-						}
-						else {
-							message.channel.send('Chickens!');
+							count++;
 						}
 					}
 				})
