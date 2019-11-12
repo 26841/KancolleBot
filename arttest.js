@@ -5,7 +5,7 @@ const { BooruError, sites } = require('booru');
 const site = 'danbooru';
 
 module.exports = {
-	name: 'art2',
+	name: 'arttest',
 	description: 'Get a random image from danbooru, test using filter',
 	execute(message, args) {
 		Booru.search(site, args, { limit: 100, random: true })
