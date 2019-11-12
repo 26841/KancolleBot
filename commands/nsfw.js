@@ -2,11 +2,11 @@ const Booru = require('booru');
 const { BooruError, sites } = require('booru');
 // for ES6:
 // import Booru, { search, BooruError, sites } from 'booru'
-const site = 'xbooru';
+const site = 'danbooru';
 
 module.exports = {
 	name: 'nsfw',
-	description: 'Get a random nsfw image from xbooru (only functional in nsfw channels)',
+	description: 'Get a random nsfw image from danbooru (only functional in nsfw channels)',
 	execute(message, args) {
 		if (!message.channel.nsfw) {
 			message.reply('I can\'t execute that command in a non-nsfw channel!');
