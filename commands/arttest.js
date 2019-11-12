@@ -2,12 +2,12 @@ const { each } = require('bluebird');
 const _ = require('lodash');
 const { search } = require('booru');
 
-const site = process.env.booru;
+const site = 'danbooru';
 // for ES6:
 // import Booru, { search, BooruError, sites } from 'booru'
 
 module.exports = {
-	name: 'art',
+	name: 'arttest',
 	description: 'Get two random images from danbooru',
 	async execute(message, args) {
 		try {
