@@ -15,7 +15,7 @@ module.exports = {
 				for (const post of posts) {
 					console.log(post);
 					console.log(post.fileUrl);
-					if (post) {
+					if (post && post.rating === 's') {
 						message.channel.send(post.fileUrl);
 					}
 					else {
