@@ -20,7 +20,7 @@ module.exports = {
 		}
 		catch (error) {
 			if (args.length > 2) {
-				message.message.channel.reply('You cannot search for more than two tags at a time!');
+				message.channel.reply('You cannot search for more than two tags at a time!');
 			}
 			else {
 				message.channel.send('Something went wrong.');
