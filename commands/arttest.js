@@ -10,6 +10,7 @@ module.exports = {
 	execute(message, args) {
 		Booru.search(site, args, { limit: 10, random: true })
 			.then(posts => {
+				console.log('arttest');
 				console.log(posts);
 				// Log the direct link to each image
 				posts.filter(post => post.rating === 's')
