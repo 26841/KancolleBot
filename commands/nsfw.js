@@ -18,9 +18,9 @@ module.exports = {
 					console.log(posts);
 					for (const post of posts) {
 						console.log(post);
-						console.log(post.fileUrl);
-						if (post) {
-							message.channel.send(post.fileUrl);
+						console.log(post.postView);
+						if (post && post.rating !== 's') {
+							message.channel.send(post.postView);
 						}
 						else {
 							message.channel.send('Chickens!');
