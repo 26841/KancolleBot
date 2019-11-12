@@ -8,9 +8,10 @@ module.exports = {
 	name: 'art',
 	description: 'Get a random image from danbooru',
 	execute(message, args) {
-		Booru.search(site, args, { limit: 100, random: true })
+		Booru.search(site, args, { limit: 10, random: true })
 			.then(posts => {
 				// Log the direct link to each image
+				console.log(posts);
 				let count = 0;
 				for (const post of posts) {
 					if (count === 2) { return; }
