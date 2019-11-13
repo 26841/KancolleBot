@@ -4,7 +4,7 @@ const birthdays = require('../birthday2.json');
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 module.exports = {
-	name: 'birthday',
+	name: 'birth',
 	description: 'Birthday search function',
 	cooldown: 5,
 	execute(message, args) {
