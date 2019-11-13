@@ -31,6 +31,7 @@ client.once('ready', () => {
 	const date = new Date();
 	console.log((date.getMonth() + 1) + '-' + (date.getDate() + 1));
 	scheduledMessageTest();
+	scheduledMessageTest2();
 	client.user.setActivity('.help for commands');
 });
 
@@ -111,6 +112,28 @@ function scheduledMessageTest() {
 	job.start();
 }
 
-
+function scheduledMessageTest2() {
+	const today = new Date();
+	const todayMonth = today.getMonth();
+	const todayDay = today.getDate();
+	const obj = birthdays['_' + (todayMonth + 1)]['_' + todayDay];
+	let returnString = '';
+	if (obj) {
+		for (const key in obj) {
+			returnString = returnString + key + ' ';
+		}
+		const job = new cron('* */1 * ' + todayDay + ' ' + todayMonth + ' *', function() {
+			client.guilds.forEach(g =>
+				g.channels
+					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
+					.sort((a, b) => b.position - a.position)
+					.first()
+					.send('Happy Birthday to ' + returnString + '!')
+					.catch(e => console.error(`Could not send to ${g.name}:`, e)),
+			);
+		});
+		job.start();
+	}
+}
 
 client.login(process.env.BOT_TOKEN);
