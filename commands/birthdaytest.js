@@ -11,8 +11,11 @@ module.exports = {
 		console.log(args);
 		const obj = birthdays['_' + args[0]]['_' + args[1]];
 		console.log(obj);
-		for (const key in obj) {
-			message.channel.send(' name = ' + key + ' year = ' + obj[key]);
+		if (obj) {
+			for (const key in obj) {
+				message.channel.send(' name = ' + key + ' year = ' + obj[key]);
+			}
 		}
+		else {message.channel.send('No one has a birthday that day!');}
 	},
 };
