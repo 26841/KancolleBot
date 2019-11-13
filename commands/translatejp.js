@@ -10,7 +10,7 @@ module.exports = {
 		if (args) {
 			const phrase = args.join(' ');
 			const translated = translate(phrase, { from: 'ja', to: 'en' });
-			message.channel.send(translated);
+			message.channel.send('translated');
 		}
 		else {return message.reply('Add something to translate!');}
 	},
