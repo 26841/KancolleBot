@@ -8,8 +8,9 @@ module.exports = {
 	cooldown: 5,
 	execute(message, args) {
 		let obj;
+		const d = new Date();
 		if (!args.length) {
-			obj = birthdays['_' + new Date.getMonth()]['_' + new Date.getDate()];
+			obj = birthdays['_' + d.getMonth()]['_' + d.getDate()];
 		}
 		else if (args.length == 2) {
 			obj = birthdays['_' + args[0]]['_' + args[1]];
