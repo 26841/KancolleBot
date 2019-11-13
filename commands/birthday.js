@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 module.exports = {
-	name: 'birthdaytest',
+	name: 'birthday',
 	description: 'Json read test',
 	cooldown: 5,
 	execute(message, args) {
