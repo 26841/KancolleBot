@@ -13,8 +13,9 @@ module.exports = {
 		}
 		else {
 			const name = args.join(' ');
+			console.log(name);
 			for (let i = 0; i < birthdays.length; i++) {
-				if (birthdays[i].Name == name) {
+				if (birthdays[i].Name === name) {
 					message.channel.send(birthdays[i].Month + ' ' + birthdays[i].Day + ' ' + birthdays[i].Year);
 				}
 			}
