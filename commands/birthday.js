@@ -11,7 +11,7 @@ module.exports = {
 		let month;
 		let day;
 		if (!args.length) {
-			month = d.getMonth();
+			month = d.getMonth() + 1;
 			day = d.getDate();
 		}
 		else if (args.length == 2) {
