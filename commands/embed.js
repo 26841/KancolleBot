@@ -28,7 +28,7 @@ module.exports = {
 				},
 				{
 					name: 'Inline field title',
-					value: 'Some value here',
+					value: 'Some value here\nSome other value here',
 					inline: true,
 				},
 				{
