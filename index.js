@@ -31,6 +31,7 @@ client.once('ready', () => {
 	const date = new Date();
 	console.log((date.getMonth() + 1) + '-' + (date.getDate() + 1));
 	scheduledMessageTest();
+	scheduledMessageTest2();
 	client.user.setActivity('.help for commands');
 });
 
@@ -121,7 +122,7 @@ function scheduledMessageTest2() {
 		for (const key in obj) {
 			returnString = returnString + key + ' ';
 		}
-		const job = new cron('* */1 * ' + todayDay + ' ' + todayMonth + ' *', function() {
+		const job = new cron('0 */1 * ' + todayDay + ' ' + todayMonth + ' *', function() {
 			client.guilds.forEach(g =>
 				g.channels
 					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
