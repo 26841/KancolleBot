@@ -15,8 +15,7 @@ module.exports = {
 		console.log(obj);
 		if (obj) {
 			const richembed = new Discord.RichEmbed()
-				.setTitle('Here\'s everyone with a birthday on ' + month[args[0] - 1] + ' ' + args[1])
-				.setTimestamp();
+				.setTitle('Here\'s everyone with a birthday on ' + month[args[0] - 1] + ' ' + args[1]);
 			for (const key in obj) {
 				const title = key + ' - ' + obj[key];
 				const snippet = 'Approximately ' + (new Date().getFullYear() - obj[key]) + ' years old';
