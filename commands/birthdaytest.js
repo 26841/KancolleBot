@@ -22,7 +22,7 @@ module.exports = {
 				const snippet = obj[key];
 				richembed.addField(title, snippet);
 			}
-			return richembed;
+			message.channel.send(richembed);
 		}
 		else {message.channel.send('No one has a birthday that day!');}
 	},
