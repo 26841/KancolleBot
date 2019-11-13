@@ -133,7 +133,7 @@ function scheduledMessageTest2() {
 			for (let i = 0; i < names.length - 1; i++) {
 				namesString += (names[i] + ', ');
 			}
-			namesString += names[names.length - 1];
+			namesString += 'and ' + names[names.length - 1];
 		}
 		console.log(names);
 		const job = new cron('0 */1 * ' + todayDay + ' ' + todayMonth + ' *', function() {
