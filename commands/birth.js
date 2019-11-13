@@ -16,7 +16,7 @@ module.exports = {
 			console.log(name);
 			for (let i = 0; i < birthdays.length; i++) {
 				if (birthdays[i].Name.toUpperCase() === name.toUpperCase()) {
-					message.channel.send(birthdays[i].Month + ' ' + birthdays[i].Day + ' ' + birthdays[i].Year);
+					return message.channel.send(birthdays[i].Month + ' ' + birthdays[i].Day + ' ' + birthdays[i].Year);
 				}
 			}
 			return message.reply('Cannot find name.');
