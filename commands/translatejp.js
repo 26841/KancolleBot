@@ -12,6 +12,6 @@ module.exports = {
 			const translated = translate(phrase, { from: 'ja', to: 'en' });
 			message.channel.send(translated);
 		}
-		else {message.reply('Add something to translate!');}
+		else {return message.reply('Add something to translate!');}
 	},
 };
