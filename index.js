@@ -130,7 +130,7 @@ function scheduledMessageTest2() {
 			namesString = names[0] + ' and ' + names[1];
 		}
 		else {
-			for (let i = 0; i < names.length - 2; i++) {
+			for (let i = 0; i < names.length - 1; i++) {
 				namesString += (names[i] + ', ');
 			}
 			namesString += names[names.length - 1];
