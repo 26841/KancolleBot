@@ -5,7 +5,7 @@ const cron = require('cron').CronJob;
 const patt = /(^|[\s]+)[pP]+[oO]+[iI]+([-~!?.*_\s]+|$)/i;
 const poi = ['Poi!', '!ioP', 'POI!', 'Pooooiiiii!', 'POOOOIIIII!', 'ぽい!', 'ぽーい!'];
 const client = new Discord.Client();
-const birthdays = require('../birthday.json');
+const birthdays = require('./birthday.json');
 client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
