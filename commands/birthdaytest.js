@@ -18,8 +18,8 @@ module.exports = {
 				.setTitle('Here\'s everyone with a birthday on ' + month[args[0] - 1] + ' ' + args[1])
 				.setTimestamp();
 			for (const key in obj) {
-				const title = key;
-				const snippet = obj[key];
+				const title = key + ' - ' + obj[key];
+				const snippet = 'Approximately ' + (new Date().getFullYear() - obj[key]) + 'years old';
 				richembed.addField(title, snippet);
 			}
 			message.channel.send(richembed);
