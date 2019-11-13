@@ -15,7 +15,7 @@ module.exports = {
 			const name = args.join(' ');
 			console.log(name);
 			for (let i = 0; i < birthdays.length; i++) {
-				if (name.equalsIgnoreCase(birthdays[i].Name)) {
+				if (birthdays[i].Name.toUpperCase() === name.toUpperCase()) {
 					message.channel.send(birthdays[i].Month + ' ' + birthdays[i].Day + ' ' + birthdays[i].Year);
 				}
 			}
