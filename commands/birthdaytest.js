@@ -1,9 +1,6 @@
 const birthdays = require('../birthday.json');
 const Discord = require('discord.js');
-const richembed = new Discord.RichEmbed()
-	.setTitle('Birthdays')
-	.setDescription('Test')
-	.setTimestamp();
+const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 module.exports = {
 	name: 'birthdaytest',
@@ -17,6 +14,9 @@ module.exports = {
 		const obj = birthdays['_' + args[0]]['_' + args[1]];
 		console.log(obj);
 		if (obj) {
+			const richembed = new Discord.RichEmbed()
+				.setTitle('Here\'s everyone with a birthday on ' + month[args[0] - 1] + args[1])
+				.setTimestamp();
 			for (const key in obj) {
 				const title = key;
 				const snippet = obj[key];
