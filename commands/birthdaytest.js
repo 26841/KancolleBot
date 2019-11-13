@@ -5,6 +5,9 @@ module.exports = {
 	description: 'Json read test',
 	cooldown: 5,
 	execute(message) {
-		message.channel.send(birthdays._1._6);
+		const obj = birthdays._1._6;
+		for (const key in obj) {
+			message.channel.send(' name =' + key + ' year =' + obj[key]);
+		}
 	},
 };
