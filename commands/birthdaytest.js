@@ -1,4 +1,9 @@
 const birthdays = require('../birthday.json');
+const Discord = require('discord.js');
+const richembed = new Discord.RichEmbed()
+	.setTitle('Birthdays')
+	.setDescription('Test')
+	.setTimestamp();
 
 module.exports = {
 	name: 'birthdaytest',
@@ -13,8 +18,11 @@ module.exports = {
 		console.log(obj);
 		if (obj) {
 			for (const key in obj) {
-				message.channel.send(' name = ' + key + ' year = ' + obj[key]);
+				const title = key;
+				const snippet = obj[key];
+				richembed.addField(title, snippet);
 			}
+			return richembed;
 		}
 		else {message.channel.send('No one has a birthday that day!');}
 	},
