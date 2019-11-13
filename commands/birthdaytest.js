@@ -7,8 +7,8 @@ module.exports = {
 	description: 'Json read test',
 	cooldown: 5,
 	execute(message, args) {
-		if (args.length != 2) {
-			message.reply('Please provide a month and a day in numbers!');
+		if (!args.length) {
+			return message.reply('You need to provide a month and day!');
 		}
 		console.log(args);
 		const obj = birthdays['_' + args[0]]['_' + args[1]];
