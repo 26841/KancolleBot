@@ -7,7 +7,7 @@ module.exports = {
 	description: 'Json read test',
 	cooldown: 5,
 	execute(message, args) {
-		if (!args.length) {
+		if (!args.length || args.length != 2) {
 			return message.reply('You need to provide a month and day!');
 		}
 		console.log(args);
