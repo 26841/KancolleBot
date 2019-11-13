@@ -18,7 +18,7 @@ module.exports = {
 					_(await search(site, args, { limit: 100, random: true }))
 						.filter(post => (post || {}).rating !== 's')
 						.take(2),
-					post => message.channel.send(post.postView),
+					post => {console.log(post); message.channel.send(post.postView);},
 				);
 			}
 			catch (error) {
