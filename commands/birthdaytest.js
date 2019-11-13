@@ -8,6 +8,7 @@ module.exports = {
 		if (args.length != 2) {
 			message.reply('Please provide a month and a day in numbers!');
 		}
+		console.log(args);
 		const obj = birthdays.args[0].args[1];
 		console.log(obj);
 		for (const key in obj) {
