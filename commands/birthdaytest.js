@@ -1,29 +1,33 @@
 const birthdays = require('../birthday.json');
 const Discord = require('discord.js');
-const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 module.exports = {
 	name: 'birthdaytest',
 	description: 'Json read test',
 	cooldown: 5,
 	execute(message, args) {
-		let obj;
 		const d = new Date();
+		let month;
+		let day;
 		if (!args.length) {
-			obj = birthdays['_' + d.getMonth()]['_' + d.getDate()];
+			month = d.getMonth();
+			day = d.getDate();
 		}
 		else if (args.length == 2) {
-			obj = birthdays['_' + args[0]]['_' + args[1]];
+			month = args[0];
+			day = args[1];
 		}
 		else {
 			return message.reply('You need to provide a month and a day!');
 		}
+		const obj = birthdays['_' + month]['_' + day];
 		if (obj) {
 			const richembed = new Discord.RichEmbed()
-				.setTitle('Here\'s everyone with a birthday on ' + month[args[0] - 1] + ' ' + args[1]);
+				.setTitle('Here\'s everyone with a birthday on ' + months[month - 1] + ' ' + day);
 			for (const key in obj) {
 				const title = key + ' - ' + obj[key];
-				const birthday = new Date(obj[key], args[0], args[1]);
+				const birthday = new Date(obj[key], month, day);
 				const age_dt = new Date(Date.now() - birthday.getTime());
 				const age = Math.abs(age_dt.getUTCFullYear() - 1970);
 				const snippet = 'Currently ' + age + ' years old';
@@ -31,6 +35,6 @@ module.exports = {
 			}
 			message.channel.send(richembed);
 		}
-		else {message.channel.send('No one has a birthday on ' + month[args[0] - 1] + ' ' + args[1] + '!');}
+		else {message.channel.send('No one has a birthday on ' + month + ' ' + day + '!');}
 	},
 };
