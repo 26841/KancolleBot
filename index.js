@@ -111,7 +111,7 @@ function scheduledMessageTest() {
 
 function scheduledMessageTest2() {
 	const num = '*/1';
-	const job = new cron('0 ' + num + ' * * * *', function() {
+	const job = new cron('0 0 0 * * *', function() {
 		client.guilds.forEach(g =>
 			g.channels
 				.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
