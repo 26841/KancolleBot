@@ -18,7 +18,10 @@ module.exports = {
 				.setTitle('Here\'s everyone with a birthday on ' + month[args[0] - 1] + ' ' + args[1]);
 			for (const key in obj) {
 				const title = key + ' - ' + obj[key];
-				const snippet = 'Approximately ' + (new Date().getFullYear() - obj[key]) + ' years old';
+				const birthday = new Date(obj[key], args[0], args[1]);
+				const age_dt = new Date(Date.now() - birthday.getTime());
+				const age = Math.abs(age_dt.getUTCFullYear() - 1970);
+				const snippet = 'Currently ' + age + ' years old';
 				richembed.addField(title, snippet);
 			}
 			message.channel.send(richembed);
