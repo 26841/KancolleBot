@@ -35,6 +35,6 @@ module.exports = {
 			}
 			message.channel.send(richembed);
 		}
-		else {message.channel.send('No one has a birthday on ' + month + ' ' + day + '!');}
+		else {message.channel.send('No one has a birthday on ' + months[month - 1] + ' ' + day + '!');}
 	},
 };
