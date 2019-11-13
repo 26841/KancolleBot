@@ -1,4 +1,4 @@
-const birthdays = require('./master/birthday.json');
+const birthdays = require('../birthday.json');
 
 module.exports = {
 	name: 'birthdaytest',
