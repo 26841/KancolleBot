@@ -7,7 +7,7 @@ const site = 'danbooru';
 
 module.exports = {
 	name: 'art',
-	description: 'Get two random images from danbooru',
+	description: 'Get two random images from danbooru (sfw by danbooru ratings)',
 	async execute(message, args) {
 		try {
 			await each(

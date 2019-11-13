@@ -7,7 +7,7 @@ const site = 'danbooru';
 
 module.exports = {
 	name: 'nsfw',
-	description: 'Get a random nsfw image from danbooru (only functional in nsfw channels)',
+	description: 'Get two random nsfw images from danbooru (only functional in nsfw channels)',
 	async execute(message, args) {
 		if (!message.channel.nsfw) {
 			message.reply('I can\'t execute that command in a non-nsfw channel!');
