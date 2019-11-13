@@ -2,10 +2,10 @@ module.exports = {
 	name: 'ping',
 	description: 'Ping!',
 	cooldown: 5,
-	execute(message, args) {
-		var start = Date.now();
-		message.channel.send('Poi!').then(function(ping){
-			var stop = Date.now();
+	execute(message) {
+		const start = Date.now();
+		message.channel.send('Poing!').then(function(ping) {
+			const stop = Date.now();
 			ping.edit(`Poing! ${stop - start}ms`);
 		});
 	},
