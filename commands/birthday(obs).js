@@ -21,7 +21,7 @@ module.exports = {
 		else {
 			return message.reply('You need to provide a month and a day!');
 		}
-		const obj = birthdays['_' + month]['_' + day];
+		const obj = birthdays[`${month}`][`${day}`];
 		if (obj) {
 			const richembed = new Discord.RichEmbed()
 				.setTitle('Here\'s everyone with a birthday on ' + months[month - 1] + ' ' + day);

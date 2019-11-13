@@ -27,7 +27,7 @@ module.exports = {
 			return message.reply('Invalid Birthday, Do provide one in this format(mm dd)');
 		}
 
-		const obj = birthdays[`_${month}`][`_${day}`];
+		const obj = birthdays[`${month}`][`${day}`];
 		if (obj === undefined) {
 			return message.channel.send('No one has a birthday on ' + months[month - 1] + ' ' + day + '!');
 		}
