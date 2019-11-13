@@ -29,6 +29,7 @@ client.once('ready', () => {
 	const date = new Date();
 	console.log((date.getMonth() + 1) + '-' + (date.getDate() + 1));
 	scheduledMessageTest();
+	scheduledMessageTest2();
 	client.user.setActivity('.help for commands');
 });
 
@@ -97,7 +98,6 @@ client.on('message', message => {
 
 function scheduledMessageTest() {
 	const job = new cron('0 0 0 */1 * *', function() {
-		const d = new Date();
 		client.guilds.forEach(g =>
 			g.channels
 				.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
@@ -110,23 +110,19 @@ function scheduledMessageTest() {
 	job.start();
 }
 
-function scheduledMessage2() {
-	cron.schedule('0 * * * * *', () => {
-		client.channels.get('598301679464742921').send('running a task every minute');
-	});
-}
-
-function scheduledMessage() {
-	cron.schedule('0 0 * * * *', () => {
+function scheduledMessageTest2() {
+	const num = 1;
+	const job = new cron('0 ' + num + ' * * * *', function() {
 		client.guilds.forEach(g =>
 			g.channels
 				.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
 				.sort((a, b) => b.position - a.position)
 				.first()
-				.send('running a task every hour')
-				.catch(e => console.error(`Could not send to ${g.name}:`, e))
+				.send('Sending a Message Every Minute')
+				.catch(e => console.error(`Could not send to ${g.name}:`, e)),
 		);
 	});
+	job.start();
 }
 
 client.login(process.env.BOT_TOKEN);
