@@ -9,6 +9,7 @@ module.exports = {
 	name: 'art',
 	description: 'Get two random images from danbooru (sfw by danbooru ratings)',
 	async execute(message, args) {
+		console.log(args);
 		try {
 			await each(
 				_(await search(site, args, { limit: 100, random: true }))
