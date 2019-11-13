@@ -117,18 +117,19 @@ function scheduledMessageTest2() {
 	const todayMonth = today.getMonth();
 	const todayDay = today.getDate();
 	const obj = birthdays['_' + (todayMonth + 1)]['_' + todayDay];
-	let returnString = '';
+	const names = [];
 	if (obj) {
 		for (const key in obj) {
-			returnString = returnString + key + ' ';
+			names.push(key);
 		}
+		console.log(names);
 		const job = new cron('0 */1 * ' + todayDay + ' ' + todayMonth + ' *', function() {
 			client.guilds.forEach(g =>
 				g.channels
 					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
 					.sort((a, b) => b.position - a.position)
 					.first()
-					.send('Happy Birthday to ' + returnString + '!')
+					.send('Happy Birthday to ' + "..." + '!')
 					.catch(e => console.error(`Could not send to ${g.name}:`, e)),
 			);
 		});
