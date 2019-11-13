@@ -7,8 +7,11 @@ module.exports = {
 	description: 'Translate from japanese',
 	cooldown: 5,
 	execute(message, args) {
-		const phrase = args.join(' ');
-		const translated = translate(phrase, { from: 'ja', to: 'en' });
-		message.channel.send(translated);
+		if (args) {
+			const phrase = args.join(' ');
+			const translated = translate(phrase, { from: 'ja', to: 'en' });
+			message.channel.send(translated);
+		}
+		else {message.reply('Add something to translate!');}
 	},
 };
