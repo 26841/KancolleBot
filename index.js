@@ -28,10 +28,7 @@ client.once('ready', () => {
 			.catch(e => console.error(`Could not send to ${g.name}:`, e)),
 	);
 	console.log('Ready!');
-	const date = new Date();
-	console.log((date.getMonth() + 1) + '-' + (date.getDate() + 1));
-	scheduledMessageTest();
-	scheduledMessageTest2();
+	birthdayMessage();
 	client.user.setActivity('.help for commands');
 });
 
@@ -98,21 +95,7 @@ client.on('message', message => {
 
 });
 
-function scheduledMessageTest() {
-	const job = new cron('0 0 0 */1 * *', function() {
-		client.guilds.forEach(g =>
-			g.channels
-				.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
-				.sort((a, b) => b.position - a.position)
-				.first()
-				.send('Sending a Message Every 24 Hours')
-				.catch(e => console.error(`Could not send to ${g.name}:`, e)),
-		);
-	});
-	job.start();
-}
-
-function scheduledMessageTest2() {
+function birthdayMessage() {
 	const today = new Date();
 	const todayMonth = today.getMonth();
 	const todayDay = today.getDate();
