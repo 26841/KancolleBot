@@ -118,9 +118,22 @@ function scheduledMessageTest2() {
 	const todayDay = today.getDate();
 	const obj = birthdays['_' + (todayMonth + 1)]['_' + todayDay];
 	const names = [];
+	let namesString = '';
 	if (obj) {
 		for (const key in obj) {
 			names.push(key);
+		}
+		if (names.length === 1) {
+			namesString = names[0];
+		}
+		else if (names.length === 2) {
+			namesString = names[0] + ' and ' + names[1];
+		}
+		else {
+			for (let i = 0; i < names.length - 2; i++) {
+				namesString += (names[i] + ', ');
+			}
+			namesString += names[names.length - 1];
 		}
 		console.log(names);
 		const job = new cron('0 */1 * ' + todayDay + ' ' + todayMonth + ' *', function() {
@@ -129,7 +142,7 @@ function scheduledMessageTest2() {
 					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
 					.sort((a, b) => b.position - a.position)
 					.first()
-					.send('Happy Birthday to ' + "..." + '!')
+					.send('Happy Birthday to ' + namesString + '!')
 					.catch(e => console.error(`Could not send to ${g.name}:`, e)),
 			);
 		});
