@@ -9,7 +9,7 @@ module.exports = {
 			message.reply('Please provide a month and a day in numbers!');
 		}
 		console.log(args);
-		const obj = birthdays.args[0].args[1];
+		const obj = birthdays[args[0]][args[1]];
 		console.log(obj);
 		for (const key in obj) {
 			message.channel.send(' name = ' + key + ' year = ' + obj[key]);
