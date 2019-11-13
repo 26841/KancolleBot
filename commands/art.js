@@ -20,6 +20,7 @@ module.exports = {
 			);
 		}
 		catch (error) {
+			console.log(args.length);
 			if (args.length > 2) {
 				message.reply('You cannot search for more than two tags at a time!');
 			}
