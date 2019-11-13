@@ -19,7 +19,7 @@ module.exports = {
 				.setTimestamp();
 			for (const key in obj) {
 				const title = key + ' - ' + obj[key];
-				const snippet = 'Approximately ' + (new Date().getFullYear() - obj[key]) + 'years old';
+				const snippet = 'Approximately ' + (new Date().getFullYear() - obj[key]) + ' years old';
 				richembed.addField(title, snippet);
 			}
 			message.channel.send(richembed);
