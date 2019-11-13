@@ -111,7 +111,7 @@ function scheduledMessageTest() {
 }
 
 function scheduledMessageTest2() {
-	const num = 1;
+	const num = '*/1';
 	const job = new cron('0 ' + num + ' * * * *', function() {
 		client.guilds.forEach(g =>
 			g.channels
