@@ -15,8 +15,8 @@ module.exports = {
 			const name = args.join(' ');
 			console.log(name);
 			for (let i = 0; i < birthdays.length; i++) {
-				if (birthdays[i].Name.equalsIgnoreCase(name)) {
-					return message.channel.send(birthdays[i].Month + ' ' + birthdays[i].Day + ' ' + birthdays[i].Year);
+				if (name.equalsIgnoreCase(birthdays[i].Name)) {
+					message.channel.send(birthdays[i].Month + ' ' + birthdays[i].Day + ' ' + birthdays[i].Year);
 				}
 			}
 			return message.reply('Cannot find name.');
