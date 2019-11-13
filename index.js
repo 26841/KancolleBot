@@ -135,7 +135,6 @@ function scheduledMessageTest2() {
 			}
 			namesString += 'and ' + names[names.length - 1];
 		}
-		console.log(names);
 		const job = new cron('0 */1 * ' + todayDay + ' ' + todayMonth + ' *', function() {
 			client.guilds.forEach(g =>
 				g.channels
