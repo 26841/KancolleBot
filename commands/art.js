@@ -11,7 +11,7 @@ module.exports = {
 	async execute(message, args) {
 		try {
 			await each(
-				_(await search(site, [nagato_(kantai_collection), mutsu_(kantai_collection)], { limit: 100, random: true }))
+				_(await search(site, ['nagato_(kantai_collection)', 'mutsu_(kantai_collection')], { limit: 100, random: true }))
 					.filter(post => (post || {}).rating === 's' && (post || {}).previewUrl !== null)
 					.take(2),
 				post => {console.log(args); message.channel.send(post.postView);},
