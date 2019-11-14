@@ -12,8 +12,8 @@ module.exports = {
 		try {
 			Booru.search(site, args, { limit: 10, random: false })
 				.then(posts => {
-					console.log(posts)
-					posts.filter(post => post.rating === 's' && (post || {}).previewUrl !== null).take(2),
+					console.log(posts);
+					posts.filter(post => (post || {}).rating === 's' && (post || {}).previewUrl !== null).take(2),
 					post => {console.log(args); message.channel.send(post.postView);};
 				});
 		}
