@@ -102,6 +102,7 @@ function birthdayMessage() {
 	const obj = birthdays[`${month}`][`${day}`];
 	const names = [];
 	let namesString = '';
+	console.log(month + ' ' + day + ' ' + obj)
 	if (obj) {
 		for (const key in obj) {
 			names.push(key);
