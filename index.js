@@ -102,12 +102,10 @@ function birthdayMessage() {
 	const obj = birthdays[`${month}`][`${day}`];
 	const names = [];
 	let namesString = '';
-	console.log(month + ' ' + day + ' ' + obj);
 	if (obj) {
 		for (const key in obj) {
 			names.push(key);
 		}
-		console.log(names);
 		if (names.length === 1) {
 			namesString = names[0];
 		}
@@ -120,7 +118,7 @@ function birthdayMessage() {
 			}
 			namesString += 'and ' + names[names.length - 1];
 		}
-		const job = new cron('0 */1 * ' + day + ' ' + month + ' *', function() {
+		const job = new cron('0 */1 * * * *', function() {
 			client.guilds.forEach(g =>
 				g.channels
 					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
