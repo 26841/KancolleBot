@@ -97,7 +97,7 @@ client.on('message', message => {
 
 function birthdayMessage() {
 	const today = new Date();
-	const month = today.getMonth();
+	const month = today.getMonth() + 1;
 	const day = today.getDate();
 	const obj = birthdays[`${month}`][`${day}`];
 	const names = [];
