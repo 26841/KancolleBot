@@ -14,7 +14,7 @@ module.exports = {
 		try {
 			await each(
 				_(await Booru.search(site, args, { limit: 100, random: true }))
-					.filter(post => (post || {}).rating === 's')
+					.filter(post => (post || {}).rating === 's' && (post || {}).previewUrl !== null)
 					.take(2),
 				post => message.channel.send(post.postView),
 			);
