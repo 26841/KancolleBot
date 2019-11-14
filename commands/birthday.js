@@ -37,6 +37,7 @@ module.exports = {
 		for (const key in obj) {
 			const birthday = new Date(obj[key], month, day);
 			const age_dt = new Date(Date.now() - birthday.getTime());
+			console.log(birthday + ' ' + age_dt);
 			const age = Math.abs(age_dt.getUTCFullYear() - 1970);
 			richembed.addField(`${key} - ${obj[key]}`, `${age} years old`, true);
 		}
