@@ -15,7 +15,7 @@ module.exports = {
 		else {
 			try {
 				await each(
-					_(await search(site, args.slice(0, args.length - 1), { limit: 100, random: true }))
+					_(await search(site, args, { limit: 100, random: true }))
 						.filter(post => (post || {}).rating !== 's' && (post || {}).previewUrl !== null)
 						.take(2),
 					post => message.channel.send(post.postView),
