@@ -35,9 +35,8 @@ module.exports = {
 		const richembed = new Discord.RichEmbed()
 			.setTitle(`Here's everyone with a birthday on ${months[month - 1]} ${day}${ordinal(day)}`);
 		for (const key in obj) {
-			const birthday = new Date(obj[key], month, day);
+			const birthday = new Date(obj[key], month - 1, day);
 			const age_dt = new Date(Date.now() - birthday.getTime());
-			console.log(birthday + ' ' + age_dt);
 			const age = Math.abs(age_dt.getUTCFullYear() - 1970);
 			richembed.addField(`${key} - ${obj[key]}`, `${age} years old`, true);
 		}
