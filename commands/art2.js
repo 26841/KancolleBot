@@ -18,9 +18,9 @@ module.exports = {
 						// Log the direct link to each image
 						posts.filter(post => (post || {}).rating === 's' && (post || {}).previewUrl !== null).take(2),
 						post => {console.log(args); message.channel.send(post.postView);};
-					},
-					),
-				));
+					}),
+				),
+			);
 		}
 		catch (error) {
 			console.log(args);
