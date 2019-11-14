@@ -118,13 +118,16 @@ function birthdayMessage() {
 			}
 			namesString += 'and ' + names[names.length - 1];
 		}
+		const birthdayEmbed = new Discord.RichEmbed()
+			.setColor('#0099ff')
+			.setTitle('Happy Birthday ' + namesString + '!');
 		const job = new cron('0 */1 * * * *', function() {
 			client.guilds.forEach(g =>
 				g.channels
 					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
 					.sort((a, b) => b.position - a.position)
 					.first()
-					.send('Happy Birthday ' + namesString + '!')
+					.send(birthdayEmbed)
 					.catch(e => console.error(`Could not send to ${g.name}:`, e)),
 			);
 		});
