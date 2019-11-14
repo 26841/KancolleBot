@@ -121,7 +121,7 @@ function birthdayMessage() {
 		const birthdayEmbed = new Discord.RichEmbed()
 			.setColor('#0099ff')
 			.setTitle('Happy Birthday ' + namesString + '!');
-		const job = new cron('0 */1 * * * *', function() {
+		const job = new cron('0 0 0 * * *', function() {
 			client.guilds.forEach(g =>
 				g.channels
 					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
