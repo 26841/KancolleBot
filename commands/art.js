@@ -1,6 +1,6 @@
 const { each } = require('bluebird');
 const _ = require('lodash');
-const Booru = require('booru');
+const { search } = require('booru');
 const site = 'danbooru';
 // for ES6:
 // import Booru, { search, BooruError, sites } from 'booru'
@@ -13,7 +13,7 @@ module.exports = {
 		console.log(args.length);
 		try {
 			await each(
-				_(await Booru.search(site, args, limit = 100, random = true))
+				_(await search(site, args, { limit: 100, random: true }))
 					.filter(post => (post || {}).rating === 's' && (post || {}).previewUrl !== null)
 					.take(2),
 				post => {console.log(args); message.channel.send(post.postView);},
