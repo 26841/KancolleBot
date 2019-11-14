@@ -16,7 +16,7 @@ module.exports = {
 				_(await Booru.search(site, tags.slice(0, args.length - 1), { limit: 100, random: true }))
 					.filter(post => (post || {}).rating === 's' && (post || {}).previewUrl !== null)
 					.take(2),
-				post => {console.log(args); message.channel.send(post.postView);},
+				post => {console.log(args[0] + ', ' + args[1]); message.channel.send(post.postView);},
 			);
 		}
 		catch (error) {
