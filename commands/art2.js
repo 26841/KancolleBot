@@ -6,7 +6,7 @@ const site = 'danbooru';
 // import Booru, { search, BooruError, sites } from 'booru'
 
 module.exports = {
-	name: 'art',
+	name: 'art2',
 	description: 'Get two random images from danbooru (sfw by danbooru ratings)',
 	async execute(message, args) {
 		try {
