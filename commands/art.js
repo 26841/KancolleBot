@@ -9,8 +9,6 @@ module.exports = {
 	name: 'art',
 	description: 'Get two random images from danbooru (sfw by danbooru ratings)',
 	async execute(message, args) {
-		console.log(args);
-		console.log(args.length);
 		try {
 			await each(
 				_(await search(site, args.slice(0, args.length - 1), { limit: 100, random: true }))
@@ -20,8 +18,6 @@ module.exports = {
 			);
 		}
 		catch (error) {
-			console.log(args.length);
-			console.log(args);
 			if (args.length > 2) {
 				message.reply('You cannot search for more than two tags at a time!');
 			}
