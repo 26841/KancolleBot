@@ -10,7 +10,7 @@ module.exports = {
 	description: 'Get two random images from danbooru (sfw by danbooru ratings)',
 	async execute(message, args) {
 		try {
-			Booru.search(site, args, { limit: 10, random: false })
+			Booru.search(site, args, { limit: 10, random: true })
 				.then(posts => {
 					console.log(posts);
 					posts.filter(post => (post || {}).rating === 's' && (post || {}).previewUrl !== null).take(2),
