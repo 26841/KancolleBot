@@ -1,33 +1,27 @@
+const { each } = require('bluebird');
+const _ = require('lodash');
 const Booru = require('booru');
-const { BooruError, sites } = require('booru');
 const site = 'danbooru';
+const fetch = require('node-fetch');
 // for ES6:
 // import Booru, { search, BooruError, sites } from 'booru'
 
 module.exports = {
-	name: 'art2',
+	name: 'art',
 	description: 'Get two random images from danbooru (sfw by danbooru ratings)',
 	execute(message, args) {
-		let count = 0;
-		Booru.search(site, args, { limit: 100, random: true })
-			.then(posts => {
-				for (const post of posts) {
-					if (count === 2) {
-						break;
-					}
-					if (post.rating === 's') {
-						count++;
-						message.channel.send(post.postView);
-					}
-				}
-			})
-			.catch(err => {
-				if (err instanceof BooruError) {
-					console.error(err.message);
-				}
-				else {
-					console.error(err);
-				}
-			});
+		let tags = '';
+		if (args.length < 3) {
+			for (const arg in args) {
+				tags += args[arg] + '+';
+			}
+			const url = 'https://danbooru.donmai.us/posts.json?tags=' + tags + 'rating:safe&limit=2&random=true';
+			fetch(url)
+				.then(res => res.json())
+				.then(json => console.log(json));
+		}
+		else {
+			return message.reply('You cannot search for more than two tags at a time!');
+		}
 	},
 };

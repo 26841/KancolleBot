@@ -1,13 +1,13 @@
 const { each } = require('bluebird');
 const _ = require('lodash');
 const Booru = require('booru');
-const site = 'gelbooru';
+const site = 'danbooru';
 // for ES6:
 // import Booru, { search, BooruError, sites } from 'booru'
 
 module.exports = {
 	name: 'art',
-	description: 'Get two random images from gelbooru (sfw by gelbooru ratings).',
+	description: 'Get two random images from danbooru (sfw by danbooru ratings)',
 	async execute(message, args) {
 		try {
 			await each(
@@ -18,8 +18,13 @@ module.exports = {
 			);
 		}
 		catch (error) {
-			message.channel.send('Something went wrong.');
-			console.error(error.message || error);
+			if (args.length > 2) {
+				message.reply('You cannot search for more than one tag at a time!');
+			}
+			else {
+				message.channel.send('Something went wrong.');
+				console.error(error.message || error);
+			}
 		}
 	},
 };
