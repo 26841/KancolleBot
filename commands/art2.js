@@ -7,7 +7,7 @@ const fetch = require('node-fetch');
 // import Booru, { search, BooruError, sites } from 'booru'
 
 module.exports = {
-	name: 'art',
+	name: 'art2',
 	description: 'Get two random images from danbooru (sfw by danbooru ratings)',
 	execute(message, args) {
 		let tags = '';
