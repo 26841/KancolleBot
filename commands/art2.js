@@ -6,8 +6,8 @@ module.exports = {
 	name: 'art2',
 	description: 'Get two random images from danbooru (sfw by danbooru ratings)',
 	execute(message, args) {
-		let tags = '';
 		if (args.length < 3) {
+			let tags = '';
 			for (const arg in args) {
 				tags += args[arg] + '+';
 			}
