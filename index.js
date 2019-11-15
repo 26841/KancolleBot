@@ -99,6 +99,7 @@ function birthdayMessage() {
 	const today = new Date();
 	const month = today.getMonth() + 1;
 	const day = today.getDate();
+	console.log(month + ' ' + day);
 	const obj = birthdays[`${month}`][`${day}`];
 	const names = [];
 	let namesString = '';
