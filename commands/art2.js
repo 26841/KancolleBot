@@ -18,7 +18,12 @@ module.exports = {
 			const url = 'https://danbooru.donmai.us/posts.json?tags=' + tags + 'rating:safe&limit=2&random=true';
 			fetch(url)
 				.then(res => res.json())
-				.then(json => console.log(json));
+				.then(json => {
+					console.log(json);
+					for (const post in json) {
+						console.log(post.file_url);
+					}
+				});
 		}
 		else {
 			return message.reply('You cannot search for more than two tags at a time!');
