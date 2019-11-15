@@ -1,7 +1,3 @@
-const { each } = require('bluebird');
-const _ = require('lodash');
-const Booru = require('booru');
-const site = 'danbooru';
 const fetch = require('node-fetch');
 // for ES6:
 // import Booru, { search, BooruError, sites } from 'booru'
@@ -19,10 +15,8 @@ module.exports = {
 			fetch(url)
 				.then(res => res.json())
 				.then(json => {
-					console.log(json);
 					for (const post in json) {
-						console.log(json[post]);
-						console.log(json[post].file_url);
+						message.channel.send('https://danbooru.donmai.us/posts' + json[post].id);
 					}
 				});
 		}
