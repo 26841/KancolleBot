@@ -22,6 +22,7 @@ module.exports = {
 					.then(res => res.json())
 					.then(json => {
 						for (const post in json) {
+							console.log(json[post]);
 							message.channel.send('https://danbooru.donmai.us/posts/' + json[post].id);
 						}
 					});
