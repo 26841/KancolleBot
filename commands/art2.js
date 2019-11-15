@@ -10,11 +10,12 @@ module.exports = {
 	description: 'Get two random images from danbooru (sfw by danbooru ratings)',
 	async execute(message, args) {
 		try {
-			Booru.search(site, args.slice(0, args.length - 1), { limit: 100, random: true })
-				.then(posts => {
-					posts.filter(post => (post || {}).rating === 's' && (post || {}).previewUrl !== null).take(2),
-					post => {console.log(args); message.channel.send(post.postView);};
-				});
+			await each(
+				_(await Booru.search(site, args, { limit: 100, random: false }))
+					.filter(post => (post || {}).rating === 's' && (post || {}).previewUrl !== null)
+					.take(2),
+				post => {console.log(args); message.channel.send(post.postView);},
+			);
 		}
 		catch (error) {
 			console.log(args);
