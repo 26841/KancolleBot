@@ -18,6 +18,7 @@ module.exports = {
 			for (let i = 0 ; i < 2 ; i++) {
 				const randomRating = ratings[Math.floor(Math.random() * ratings.length)];
 				const url = 'https://danbooru.donmai.us/posts.json?tags=' + tags + 'rating:' + randomRating + '&limit=1&random=true';
+				console.log(url);
 				fetch(url)
 					.then(res => res.json())
 					.then(json => {
