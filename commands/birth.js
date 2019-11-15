@@ -21,7 +21,7 @@ module.exports = {
 				if (birthdays[i].Name.toUpperCase() === name.toUpperCase()) {
 					return message.channel.send(
 						new Discord.RichEmbed()
-							.setTitle(birthdays[i].Name + '\'s birthday is on ' + months[birthdays[i].Month - 1] + ' ' + ordinal(birthdays[i].Day) + ', ' + birthdays[i].Year),
+							.setTitle(birthdays[i].Name + '\'s birthday is on ' + months[birthdays[i].Month - 1] + ' ' + birthdays[i].Day + ordinal(birthdays[i].Day) + ', ' + birthdays[i].Year),
 					);
 				}
 			}
