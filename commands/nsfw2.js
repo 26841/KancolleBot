@@ -9,7 +9,7 @@ module.exports = {
 		if (!message.channel.nsfw) {
 			message.reply('I can\'t execute that command in a non-nsfw channel!');
 		}
-		else if (args.length < 3) {
+		else if (args.length < 2) {
 			let tags = '';
 			for (const arg in args) {
 				tags += args[arg] + '+';
@@ -30,7 +30,7 @@ module.exports = {
 			}
 		}
 		else {
-			return message.reply('You cannot search for more than two tags at a time!');
+			return message.reply('You cannot search for more than one tag at a time!');
 		}
 	},
 };
