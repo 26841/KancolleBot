@@ -96,33 +96,32 @@ client.on('message', message => {
 });
 
 function birthdayMessage() {
-	const today = new Date();
-	const month = today.getMonth() + 1;
-	const day = today.getDate();
-	console.log(month + ' ' + day);
-	const obj = birthdays[`${month}`][`${day}`];
-	const names = [];
-	let namesString = '';
-	if (obj) {
-		for (const key in obj) {
-			names.push(key);
-		}
-		if (names.length === 1) {
-			namesString = names[0];
-		}
-		else if (names.length === 2) {
-			namesString = names[0] + ' and ' + names[1];
-		}
-		else {
-			for (let i = 0; i < names.length - 1; i++) {
-				namesString += (names[i] + ', ');
+	const job = new cron('0 0 0 * * *', function() {
+		const today = new Date();
+		const month = today.getMonth() + 1;
+		const day = today.getDate();
+		const obj = birthdays[`${month}`][`${day}`];
+		const names = [];
+		let namesString = '';
+		if (obj) {
+			for (const key in obj) {
+				names.push(key);
 			}
-			namesString += 'and ' + names[names.length - 1];
-		}
-		const birthdayEmbed = new Discord.RichEmbed()
-			.setColor('#0099ff')
-			.setTitle('Happy Birthday ' + namesString + '!');
-		const job = new cron('0 0 0 * * *', function() {
+			if (names.length === 1) {
+				namesString = names[0];
+			}
+			else if (names.length === 2) {
+				namesString = names[0] + ' and ' + names[1];
+			}
+			else {
+				for (let i = 0; i < names.length - 1; i++) {
+					namesString += (names[i] + ', ');
+				}
+				namesString += 'and ' + names[names.length - 1];
+			}
+			const birthdayEmbed = new Discord.RichEmbed()
+				.setColor('#0099ff')
+				.setTitle('Happy Birthday ' + namesString + '!');
 			client.guilds.forEach(g =>
 				g.channels
 					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
@@ -131,9 +130,9 @@ function birthdayMessage() {
 					.send(birthdayEmbed)
 					.catch(e => console.error(`Could not send to ${g.name}:`, e)),
 			);
-		});
-		job.start();
-	}
+		}
+	});
+	job.start();
 }
 
 client.login(process.env.BOT_TOKEN);
