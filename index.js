@@ -96,7 +96,7 @@ client.on('message', message => {
 });
 
 function birthdayMessage() {
-	const job = new cron('0 0 0 * * *', function() {
+	const job = new cron('0 */1 * * * *', function() {
 		const today = new Date();
 		const month = today.getMonth() + 1;
 		const day = today.getDate();
