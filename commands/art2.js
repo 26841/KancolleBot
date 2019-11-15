@@ -21,6 +21,7 @@ module.exports = {
 				.then(json => {
 					console.log(json);
 					for (const post in json) {
+						console.log(post);
 						console.log(post.file_url);
 					}
 				});
