@@ -12,6 +12,7 @@ module.exports = {
 				tags += args[arg] + '+';
 			}
 			const url = 'https://danbooru.donmai.us/posts.json?tags=' + tags + 'rating:safe&limit=2&random=true';
+			console.log(url);
 			fetch(url)
 				.then(res => res.json())
 				.then(json => {
