@@ -1,35 +1,36 @@
-const { each } = require('bluebird');
-const _ = require('lodash');
-const { search } = require('booru');
-const site = 'danbooru';
+const fetch = require('node-fetch');
 // for ES6:
 // import Booru, { search, BooruError, sites } from 'booru'
 
 module.exports = {
 	name: 'nsfw',
-	description: 'Get two random nsfw images from danbooru (only functional in nsfw channels)',
-	async execute(message, args) {
+	description: 'Get two random nsfw images from danbooru',
+	execute(message, args) {
 		if (!message.channel.nsfw) {
 			message.reply('I can\'t execute that command in a non-nsfw channel!');
 		}
+		else if (args.length < 2) {
+			let tags = '';
+			for (const arg in args) {
+				tags += args[arg] + '+';
+			}
+			const ratings = ['questionable', 'explicit'];
+			for (let i = 0 ; i < 2 ; i++) {
+				const randomRating = ratings[Math.floor(Math.random() * ratings.length)];
+				const url = 'https://danbooru.donmai.us/posts.json?tags=' + tags + 'rating:' + randomRating + '&limit=1&random=true';
+				console.log(url);
+				fetch(url)
+					.then(res => res.json())
+					.then(json => {
+						for (const post in json) {
+							console.log(json[post]);
+							message.channel.send('https://danbooru.donmai.us/posts/' + json[post].id);
+						}
+					});
+			}
+		}
 		else {
-			try {
-				await each(
-					_(await search(site, args, { limit: 100, random: true }))
-						.filter(post => (post || {}).rating !== 's' && (post || {}).previewUrl !== null)
-						.take(2),
-					post => {console.log(args); message.channel.send(post.postView);},
-				);
-			}
-			catch (error) {
-				if (args.length > 2) {
-					message.reply('You cannot search for more than two tags at a time!');
-				}
-				else {
-					message.channel.send('Something went wrong.');
-					console.error(error.message || error);
-				}
-			}
+			return message.reply('You cannot search for more than one tag at a time!');
 		}
 	},
 };
