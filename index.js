@@ -6,7 +6,7 @@ const patt = /(^|[\s]+)[pP]+[oO]+[iI]+([-~!?.*_\s]+|$)/i;
 const poi = ['Poi!', '!ioP', 'POI!', 'Pooooiiiii!', 'POOOOIIIII!', 'ぽい!', 'ぽーい!', 'P.\no.\ni.', '¡ᴉoԀ', '\:regional_indicator_p:\:regional_indicator_o:\:regional_indicator_i:'];
 const client = new Discord.Client();
 const birthdays = require('./birthday.json');
-const timeout = setTimeout(() => {console.log('Alligator!!!!');}, 10000);
+const timeout = () => setTimeout(() => {console.log('Alligator!!!!');}, 10000);
 client.commands = new Discord.Collection();
 
 
@@ -30,21 +30,15 @@ client.once('ready', () => {
 	);
 	console.log('Ready!');
 	birthdayMessage();
-	timeout;
+	timeout();
 	client.user.setActivity('.help for commands');
 });
 
 client.on('message', message => {
 
-	if(!message.author.bot && String(message).match(patt)) {
-		return message.channel.send(poi[Math.floor(Math.random() * poi.length)]);
-	}
-
 	if (!message.content.startsWith(prefix) || message.author.bot) {
 		return;
 	}
-
-	timeout;
 
 	const args = message.content.slice(prefix.length).split(/ +/);
 	const commandName = args.shift().toLowerCase();
@@ -53,6 +47,12 @@ client.on('message', message => {
 		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
 	if (!command) return;
+
+	timeout();
+
+	if(!message.author.bot && String(message).match(patt)) {
+		return message.channel.send(poi[Math.floor(Math.random() * poi.length)]);
+	}
 
 	if (command.guildOnly && message.channel.type !== 'text') {
 		return message.reply('I can\'t execute that command inside DMs!');
