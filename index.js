@@ -143,6 +143,7 @@ function birthdayMessage() {
 function idle() {
 	clearTimeout(timeout);
 	timeout = () => setTimeout(() => {console.log('Idle Message Test');}, 10000);
+	timeout();
 }
 
 client.login(process.env.BOT_TOKEN);
