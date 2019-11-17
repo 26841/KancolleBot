@@ -29,6 +29,7 @@ client.once('ready', () => {
 	);
 	console.log('Ready!');
 	birthdayMessage();
+	setTimeout(function() { console.log('Test'); }, 3000);
 	client.user.setActivity('.help for commands');
 });
 
@@ -133,6 +134,12 @@ function birthdayMessage() {
 		}
 	});
 	job.start();
+}
+
+function idle() {
+	setTimeout(() => {
+		console.log('Alligator!!!!');
+	}, 1000);
 }
 
 client.login(process.env.BOT_TOKEN);
