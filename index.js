@@ -36,6 +36,11 @@ client.once('ready', () => {
 
 client.on('message', message => {
 
+	if(!message.author.bot && String(message).match(patt)) {
+		timeout();
+		return message.channel.send(poi[Math.floor(Math.random() * poi.length)]);
+	}
+
 	if (!message.content.startsWith(prefix) || message.author.bot) {
 		return;
 	}
@@ -47,12 +52,6 @@ client.on('message', message => {
 		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
 	if (!command) return;
-
-	timeout();
-
-	if(!message.author.bot && String(message).match(patt)) {
-		return message.channel.send(poi[Math.floor(Math.random() * poi.length)]);
-	}
 
 	if (command.guildOnly && message.channel.type !== 'text') {
 		return message.reply('I can\'t execute that command inside DMs!');
@@ -90,6 +89,7 @@ client.on('message', message => {
 
 	try {
 		command.execute(message, args);
+		timeout();
 	}
 	catch (error) {
 		console.error(error);
