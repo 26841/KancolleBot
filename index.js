@@ -92,7 +92,10 @@ client.on('message', message => {
 
 	try {
 		command.execute(message, args);
-		timeout();
+		timeout = () => {
+			clearTimeout(timeout);
+			setTimeout(() => {console.log('Idle Message Test');}, 10000);
+		};
 	}
 	catch (error) {
 		console.error(error);
