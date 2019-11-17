@@ -140,10 +140,10 @@ function birthdayMessage() {
 
 function idle(message) {
 	if (timeout) {
-		clearTimeout(timeout);
+		clearInterval(timeout);
 		timeout = null;
 	}
-	timeout = setTimeout(() => message.channel.send('Idle Message Test'), 10000);
+	timeout = setInterval(() => message.channel.send('Idle Message Test'), 10000);
 }
 
 client.login(process.env.BOT_TOKEN);
