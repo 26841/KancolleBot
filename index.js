@@ -39,7 +39,7 @@ client.on('message', message => {
 	if(!message.author.bot && String(message).match(patt)) {
 		timeout = () => {
 			clearTimeout(timeout);
-			setTimeout(() => {console.log('Idle Message Test');}, 10000);
+			timeout = () => setTimeout(() => {console.log('Idle Message Test');}, 10000);
 		};
 		return message.channel.send(poi[Math.floor(Math.random() * poi.length)]);
 	}
@@ -94,7 +94,7 @@ client.on('message', message => {
 		command.execute(message, args);
 		timeout = () => {
 			clearTimeout(timeout);
-			setTimeout(() => {console.log('Idle Message Test');}, 10000);
+			timeout = () => setTimeout(() => {console.log('Idle Message Test');}, 10000);
 		};
 	}
 	catch (error) {
