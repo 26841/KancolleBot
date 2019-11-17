@@ -6,7 +6,7 @@ const patt = /(^|[\s]+)[pP]+[oO]+[iI]+([-~!?.*_\s]+|$)/i;
 const poi = ['Poi!', '!ioP', 'POI!', 'Pooooiiiii!', 'POOOOIIIII!', 'ぽい!', 'ぽーい!', 'P.\no.\ni.', '¡ᴉoԀ', '\:regional_indicator_p:\:regional_indicator_o:\:regional_indicator_i:'];
 const client = new Discord.Client();
 const birthdays = require('./birthday.json');
-let timeout = setTimeout(() => {console.log('Idle Message Test');}, 10000);
+let timeout = () => setTimeout(() => {console.log('Idle Message Test');}, 10000);
 client.commands = new Discord.Collection();
 
 
@@ -37,10 +37,8 @@ client.once('ready', () => {
 client.on('message', message => {
 
 	if(!message.author.bot && String(message).match(patt)) {
-		timeout = () => {
-			clearTimeout(timeout);
-			timeout = setTimeout(() => {console.log('Idle Message Test');}, 10000);
-		};
+		clearTimeout(timeout);
+		timeout = () => setTimeout(() => {console.log('Idle Message Test');}, 10000);
 		return message.channel.send(poi[Math.floor(Math.random() * poi.length)]);
 	}
 
@@ -92,10 +90,8 @@ client.on('message', message => {
 
 	try {
 		command.execute(message, args);
-		timeout = () => {
-			clearTimeout(timeout);
-			timeout = setTimeout(() => {console.log('Idle Message Test');}, 10000);
-		};
+		clearTimeout(timeout);
+		timeout = () => setTimeout(() => {console.log('Idle Message Test');}, 10000);
 	}
 	catch (error) {
 		console.error(error);
