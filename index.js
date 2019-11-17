@@ -6,6 +6,7 @@ const patt = /(^|[\s]+)[pP]+[oO]+[iI]+([-~!?.*_\s]+|$)/i;
 const poi = ['Poi!', '!ioP', 'POI!', 'Pooooiiiii!', 'POOOOIIIII!', 'ぽい!', 'ぽーい!', 'P.\no.\ni.', '¡ᴉoԀ', '\:regional_indicator_p:\:regional_indicator_o:\:regional_indicator_i:'];
 const client = new Discord.Client();
 const birthdays = require('./birthday.json');
+const timeout = setTimeout(() => {console.log('Alligator!!!!');}, 3000);
 client.commands = new Discord.Collection();
 
 
@@ -29,7 +30,7 @@ client.once('ready', () => {
 	);
 	console.log('Ready!');
 	birthdayMessage();
-	setTimeout(function() { console.log('Test'); }, 3000);
+	timeout;
 	client.user.setActivity('.help for commands');
 });
 
@@ -139,7 +140,7 @@ function birthdayMessage() {
 function idle() {
 	setTimeout(() => {
 		console.log('Alligator!!!!');
-	}, 1000);
+	}, 3600000);
 }
 
 client.login(process.env.BOT_TOKEN);
