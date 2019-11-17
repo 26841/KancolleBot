@@ -143,7 +143,7 @@ function idle(message) {
 		clearInterval(timeout);
 		timeout = null;
 	}
-	timeout = setInterval(() => message.channel.send('Idle Message Test'), 10000);
+	timeout = setInterval(() => message.channel.send('Idle Message Test'), 1800000);
 }
 
 client.login(process.env.BOT_TOKEN);
