@@ -144,7 +144,7 @@ function idle() {
 		clearTimeout(timeout);
 		timeout = null;
 	}
-	timeout = setTimeout(() => {console.log('Idle Message Test');}, 10000);
+	timeout = setTimeout(() => console.log('Idle Message Test'), 10000);
 }
 
 client.login(process.env.BOT_TOKEN);
