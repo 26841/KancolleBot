@@ -6,7 +6,7 @@ const patt = /(^|[\s]+)[pP]+[oO]+[iI]+([-~!?.*_\s]+|$)/i;
 const poi = ['Poi!', '!ioP', 'POI!', 'Pooooiiiii!', 'POOOOIIIII!', 'ぽい!', 'ぽーい!', 'P.\no.\ni.', '¡ᴉoԀ', '\:regional_indicator_p:\:regional_indicator_o:\:regional_indicator_i:'];
 const client = new Discord.Client();
 const birthdays = require('./birthday.json');
-let timeout = () => setTimeout(() => {console.log('Idle Message Test');}, 10000);
+let timeout;
 client.commands = new Discord.Collection();
 
 
