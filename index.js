@@ -141,8 +141,8 @@ function birthdayMessage() {
 
 function idle() {
 	if (timeout) {
-		clearTimeout(timeout);
 		timeout = null;
+		clearTimeout(timeout);
 	}
 	timeout = () => setTimeout(() => {console.log('Idle Message Test');}, 10000);
 	timeout();
