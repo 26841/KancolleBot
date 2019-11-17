@@ -37,8 +37,7 @@ client.once('ready', () => {
 client.on('message', message => {
 
 	if(!message.author.bot && String(message).match(patt)) {
-		clearTimeout(timeout);
-		timeout = () => setTimeout(() => {console.log('Idle Message Test');}, 10000);
+		idle();
 		return message.channel.send(poi[Math.floor(Math.random() * poi.length)]);
 	}
 
@@ -89,9 +88,9 @@ client.on('message', message => {
 	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
 	try {
+		idle();
 		command.execute(message, args);
-		clearTimeout(timeout);
-		timeout = () => setTimeout(() => {console.log('Idle Message Test');}, 10000);
+		console.log('test');
 	}
 	catch (error) {
 		console.error(error);
@@ -142,9 +141,8 @@ function birthdayMessage() {
 }
 
 function idle() {
-	setTimeout(() => {
-		console.log('Alligator!!!!');
-	}, 3600000);
+	clearTimeout(timeout);
+	timeout = () => setTimeout(() => {console.log('Idle Message Test');}, 10000);
 }
 
 client.login(process.env.BOT_TOKEN);
