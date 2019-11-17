@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const d = new Date();
 const birthdays = require('../birthday.json');
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -12,6 +11,7 @@ module.exports = {
 	description: 'Birthday search function',
 	cooldown: 5,
 	execute(message, args) {
+		const d = new Date();
 		let month;
 		let day;
 
