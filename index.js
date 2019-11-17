@@ -6,7 +6,7 @@ const patt = /(^|[\s]+)[pP]+[oO]+[iI]+([-~!?.*_\s]+|$)/i;
 const poi = ['Poi!', '!ioP', 'POI!', 'Pooooiiiii!', 'POOOOIIIII!', 'ぽい!', 'ぽーい!', 'P.\no.\ni.', '¡ᴉoԀ', '\:regional_indicator_p:\:regional_indicator_o:\:regional_indicator_i:'];
 const client = new Discord.Client();
 const birthdays = require('./birthday.json');
-const timeout = setTimeout(() => {console.log('Alligator!!!!');}, 3000);
+const timeout = setTimeout(() => {console.log('Alligator!!!!');}, 10000);
 client.commands = new Discord.Collection();
 
 
@@ -43,6 +43,8 @@ client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) {
 		return;
 	}
+
+	timeout;
 
 	const args = message.content.slice(prefix.length).split(/ +/);
 	const commandName = args.shift().toLowerCase();
