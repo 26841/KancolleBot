@@ -89,7 +89,7 @@ client.on('message', message => {
 
 	try {
 		command.execute(message, args);
-		idle();
+		idle(message);
 	}
 	catch (error) {
 		console.error(error);
@@ -139,12 +139,12 @@ function birthdayMessage() {
 	job.start();
 }
 
-function idle() {
+function idle(message) {
 	if (timeout) {
 		clearTimeout(timeout);
 		timeout = null;
 	}
-	timeout = setTimeout(() => console.log('Idle Message Test'), 10000);
+	timeout = setTimeout(() => message.channel.send('Idle Message Test'), 600000);
 }
 
 client.login(process.env.BOT_TOKEN);
