@@ -88,9 +88,8 @@ client.on('message', message => {
 	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
 	try {
-		idle();
 		command.execute(message, args);
-		console.log('test');
+		idle();
 	}
 	catch (error) {
 		console.error(error);
@@ -141,7 +140,10 @@ function birthdayMessage() {
 }
 
 function idle() {
-	clearTimeout(timeout);
+	if (timeout) {
+		clearTimeout(timeout);
+		timeout = null;
+	}
 	timeout = () => setTimeout(() => {console.log('Idle Message Test');}, 10000);
 	timeout();
 }
