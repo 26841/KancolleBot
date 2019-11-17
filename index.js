@@ -30,7 +30,7 @@ client.once('ready', () => {
 	);
 	console.log('Ready!');
 	birthdayMessage();
-	timeout();
+	idle();
 	client.user.setActivity('.help for commands');
 });
 
