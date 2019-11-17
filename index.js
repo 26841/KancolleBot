@@ -30,14 +30,13 @@ client.once('ready', () => {
 	);
 	console.log('Ready!');
 	birthdayMessage();
-	idle();
 	client.user.setActivity('.help for commands');
 });
 
 client.on('message', message => {
 
 	if(!message.author.bot && String(message).match(patt)) {
-		idle();
+		idle(message);
 		return message.channel.send(poi[Math.floor(Math.random() * poi.length)]);
 	}
 
@@ -144,7 +143,7 @@ function idle(message) {
 		clearTimeout(timeout);
 		timeout = null;
 	}
-	timeout = setTimeout(() => message.channel.send('Idle Message Test'), 10000);
+	timeout = setTimeout(() => message.channel.send('Idle Message Test'), 1000);
 }
 
 client.login(process.env.BOT_TOKEN);
