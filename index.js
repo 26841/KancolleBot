@@ -30,6 +30,7 @@ client.once('ready', () => {
 	);
 	console.log('Ready!');
 	birthdayMessage();
+	idle();
 	client.user.setActivity('.help for commands');
 });
 
@@ -138,7 +139,7 @@ function birthdayMessage() {
 	job.start();
 }
 
-function idle(message) {
+function idle() {
 	if (timeout) {
 		clearInterval(timeout);
 		timeout = null;
@@ -152,7 +153,7 @@ function idle(message) {
 				.send('Idle Message Test')
 				.catch(e => console.error(`Could not send to ${g.name}:`, e)),
 		);
-	}, 10000);
+	}, 1800000);
 }
 
 client.login(process.env.BOT_TOKEN);
