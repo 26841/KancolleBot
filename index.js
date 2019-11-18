@@ -143,7 +143,16 @@ function idle(message) {
 		clearInterval(timeout);
 		timeout = null;
 	}
-	timeout = setInterval(() => message.channel.send('Idle Message Test'), 1800000);
+	timeout = setInterval(() => {
+		client.guilds.forEach(g =>
+			g.channels
+				.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
+				.sort((a, b) => b.position - a.position)
+				.first()
+				.send('Idle Message Test')
+				.catch(e => console.error(`Could not send to ${g.name}:`, e)),
+		);
+	}, 10000);
 }
 
 client.login(process.env.BOT_TOKEN);
