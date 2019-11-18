@@ -11,7 +11,7 @@ module.exports = {
 	description: 'Birthday search function',
 	cooldown: 5,
 	execute(message, args) {
-		console.log(args);
+		console.log(args[0].toUpperCase);
 		const d = new Date();
 		let month;
 		let day;
