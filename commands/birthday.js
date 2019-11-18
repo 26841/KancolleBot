@@ -15,9 +15,13 @@ module.exports = {
 		let month;
 		let day;
 
-		if (args.length == 2) {
+		if (args.length == 2 || (args.length == 3 && args[1].toUpperCase === 'MD')) {
 			month = args[0];
 			day = args[1];
+		}
+		else if (args.length == 3 && args[1].toUpperCase === 'DM') {
+			month = args[1];
+			day = args[0];
 		}
 		else if (!args.length) {
 			month = d.getMonth() + 1;
