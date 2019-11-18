@@ -28,7 +28,7 @@ module.exports = {
 			day = d.getDate();
 		}
 		else {
-			return message.reply('Invalid Birthday, Do provide one in this format(mm dd)');
+			return message.reply('Invalid Input. Please provide a format (\'dm\' or \'md\'), a month and a day');
 		}
 		const obj = birthdays[`${month}`][`${day}`];
 		if (obj === undefined) {
