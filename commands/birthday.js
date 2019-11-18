@@ -11,6 +11,7 @@ module.exports = {
 	description: 'Birthday search function',
 	cooldown: 5,
 	execute(message, args) {
+		console.log(args);
 		const d = new Date();
 		let month;
 		let day;
