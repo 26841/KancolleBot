@@ -8,7 +8,7 @@ const client = new Discord.Client();
 const birthdays = require('./birthday.json');
 const ships = require('@kancolle/data/wiki/ship');
 const quotes = require('./quotes.json');
-const { tl, tlShip, tlShipFromId } = require('@kancolle/data');
+const { api, tl, tlShip, tlShipFromId } = require('@kancolle/data');
 const getQuotes = name => {
 	let form = ships[name];
 	const forms = [form];
@@ -165,7 +165,7 @@ function idle() {
 			const keys = Object.keys(quotes);
 			const randIndex = Math.floor(Math.random() * keys.length);
 			const randKey = keys[randIndex];
-			quote = quotes[randKey]['Idle'] + ' -' + tl.tlShipFromId(randKey);
+			quote = quotes[randKey]['Idle'] + ' -' + tl.tlShipFromId(+randKey);
 		} while (!quote);
 		client.guilds.forEach(g =>
 			g.channels
