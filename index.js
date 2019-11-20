@@ -187,7 +187,7 @@ function idle() {
 			);
 		}
 		catch (error) {
-			console.log(randKey);
+			console.log('Error' + randKey);
 			console.log('Error: ' + error);
 			client.guilds.forEach(g =>
 				g.channels
