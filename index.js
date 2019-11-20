@@ -188,7 +188,7 @@ function idle() {
 		}
 		catch (error) {
 			console.log(randKey);
-			console.log(error);
+			console.log('Error: 'error);
 			client.guilds.forEach(g =>
 				g.channels
 					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
