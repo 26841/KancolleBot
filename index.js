@@ -176,7 +176,7 @@ function idle() {
 					quote = quotelist;
 				}
 			} while (!quote);
-			quote += ' - ' + tl.tlShipFromId(Number(randKey));
+			quote += ' - ' + tl.tlShipFromId(Number(+randKey));
 			client.guilds.forEach(g =>
 				g.channels
 					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
@@ -192,7 +192,7 @@ function idle() {
 					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
 					.sort((a, b) => b.position - a.position)
 					.first()
-					.send('Error at id: ' + Number(randKey))
+					.send('Error at id: ' + Number(+randKey))
 					.catch(e => console.error(`Could not send to ${g.name}:`, e)),
 			);
 		}
