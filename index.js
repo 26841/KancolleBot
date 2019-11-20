@@ -175,7 +175,7 @@ function idle() {
 				.send(quote)
 				.catch(e => console.error(`Could not send to ${g.name}:`, e)),
 		);
-	}, 1800000);
+	}, 10000);
 }
 
 client.login(process.env.BOT_TOKEN);
