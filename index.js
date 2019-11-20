@@ -161,12 +161,14 @@ function idle() {
 	}
 	timeout = setInterval(() => {
 		let quote;
+		let randKey;
 		do {
 			const keys = Object.keys(quotes);
 			const randIndex = Math.floor(Math.random() * keys.length);
-			const randKey = keys[randIndex];
-			quote = quotes[randKey]['Idle'] + ' -' + tl.tlShipFromId(+randKey);
+			randKey = keys[randIndex];
+			quote = quotes[randKey]['Idle'];
 		} while (!quote);
+		quote += ' - ' + tl.tlShipFromId(+randKey);
 		client.guilds.forEach(g =>
 			g.channels
 				.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
