@@ -159,7 +159,8 @@ function idle() {
 		const keys = Object.keys(quotes);
 		const randIndex = Math.floor(Math.random() * keys.length);
 		const randKey = keys[randIndex];
-		quote = quotes[randKey];
+		quote = quotes[randKey]['Idle'];
+		console.log(quote);
 	} while (!quote);
 	if (timeout) {
 		clearInterval(timeout);
