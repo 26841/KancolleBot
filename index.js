@@ -6,6 +6,18 @@ const patt = /(^|[\s]+)[pP]+[oO]+[iI]+([-~!?.*_\s]+|$)/i;
 const poi = ['Poi!', '!ioP', 'POI!', 'Pooooiiiii!', 'POOOOIIIII!', 'ぽい!', 'ぽーい!', 'P.\no.\ni.', '¡ᴉoԀ', '\:regional_indicator_p:\:regional_indicator_o:\:regional_indicator_i:'];
 const client = new Discord.Client();
 const birthdays = require('./birthday.json');
+const ships = require('@kancolle/data/wiki/ship');
+const quotes = require('./quotes.json');
+const getQuotes = name => {
+	let form = ships[name];
+	const forms = [form];
+	while (form._remodel_from) {
+		const prev = ships[form._remodel_from.replace('/', ' ').trim()];
+		forms.unshift(prev);
+		form = prev;
+	}
+	return Object.assign({}, ...forms.map(form => quotes[form._api_id]));
+};
 let timeout;
 client.commands = new Discord.Collection();
 
@@ -31,6 +43,9 @@ client.once('ready', () => {
 	console.log('Ready!');
 	birthdayMessage();
 	idle();
+	console.log(getQuotes('Abukuma'));
+	console.log(getQuotes('Abukuma Kai'));
+	console.log(getQuotes('Abukuma Kai Ni'));
 	client.user.setActivity('.help for commands');
 });
 
