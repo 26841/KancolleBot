@@ -8,7 +8,6 @@ const client = new Discord.Client();
 const birthdays = require('./birthday.json');
 const ships = require('@kancolle/data/wiki/ship');
 const quotes = require('./quotes.json');
-const objectConstructor = ({}).constructor;
 const { api, tl, tlShip, tlShipFromId } = require('@kancolle/data');
 const getQuotes = name => {
 	let form = ships[name];
@@ -165,7 +164,7 @@ function idle() {
 			const randIndex = Math.floor(Math.random() * keys.length);
 			randKey = keys[randIndex];
 			const quotelist = quotes[randKey]['Idle'];
-			if (quotelist.constructor === objectConstructor) {
+			if (typeof quotelist === 'object' && quotelist !== null) {
 				const keys2 = Object.keys(quotelist);
 				const randIndex2 = Math.floor(Math.random() * keys2.length);
 				const randKey2 = keys[randIndex2];
