@@ -159,29 +159,43 @@ function idle() {
 	timeout = setInterval(() => {
 		let quote;
 		let randKey;
-		do {
-			const keys = Object.keys(quotes);
-			const randIndex = Math.floor(Math.random() * keys.length);
-			randKey = keys[randIndex];
+		try {
+			do {
+				const keys = Object.keys(quotes);
+				const randIndex = Math.floor(Math.random() * keys.length);
+				randKey = keys[randIndex];
+				console.log(randKey);
+				const quotelist = quotes[randKey]['Idle'];
+				if (typeof quotelist === 'object' && quotelist !== null) {
+					const keys2 = Object.keys(quotelist);
+					const randIndex2 = Math.floor(Math.random() * keys2.length);
+					const randKey2 = keys[randIndex2];
+					quote = quotelist[randKey2];
+				}
+				else {
+					quote = quotelist;
+				}
+			} while (!quote);
+			quote += ' - ' + tl.tlShipFromId(+randKey);
+			client.guilds.forEach(g =>
+				g.channels
+					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
+					.sort((a, b) => b.position - a.position)
+					.first()
+					.send(quote)
+					.catch(e => console.error(`Could not send to ${g.name}:`, e)),
+			);
+		}
+		catch (error) {
 			console.log(randKey);
-			const quotelist = quotes[randKey]['Idle'];
-			if (typeof quotelist === 'object' && quotelist !== null) {
-				const keys2 = Object.keys(quotelist);
-				const randIndex2 = Math.floor(Math.random() * keys2.length);
-				const randKey2 = keys[randIndex2];
-				quote = quotelist[randKey2];
-			}
-			else {
-				quote = quotelist;
-			}
-		} while (!quote);
-		quote += ' - ' + tl.tlShipFromId(+randKey);
+			console.log(error);
+		}
 		client.guilds.forEach(g =>
 			g.channels
 				.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
 				.sort((a, b) => b.position - a.position)
 				.first()
-				.send(quote)
+				.send('Something went wrong')
 				.catch(e => console.error(`Could not send to ${g.name}:`, e)),
 		);
 	}, 10000);
