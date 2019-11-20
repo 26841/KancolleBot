@@ -44,9 +44,6 @@ client.once('ready', () => {
 	console.log('Ready!');
 	birthdayMessage();
 	idle();
-	console.log(getQuotes('Abukuma'));
-	console.log(getQuotes('Abukuma Kai'));
-	console.log(getQuotes('Abukuma Kai Ni'));
 	client.user.setActivity('.help for commands');
 });
 
