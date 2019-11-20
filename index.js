@@ -154,6 +154,13 @@ function birthdayMessage() {
 }
 
 function idle() {
+	let quote;
+	do {
+		const keys = Object.keys(quotes);
+		const randIndex = Math.floor(Math.random() * keys.length);
+		const randKey = keys[randIndex];
+		quote = quotes[randKey];
+	} while (!quote);
 	if (timeout) {
 		clearInterval(timeout);
 		timeout = null;
@@ -164,7 +171,7 @@ function idle() {
 				.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
 				.sort((a, b) => b.position - a.position)
 				.first()
-				.send('Idle Message Test')
+				.send(quote)
 				.catch(e => console.error(`Could not send to ${g.name}:`, e)),
 		);
 	}, 1800000);
