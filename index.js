@@ -164,17 +164,17 @@ function idle() {
 			const keys = Object.keys(quotes);
 			const randIndex = Math.floor(Math.random() * keys.length);
 			const randKey = keys[randIndex];
-			quote = quotes[randKey]['Idle'];
+			quote = quotes[randKey]['Idle'] + ;
 		} while (!quote);
 		client.guilds.forEach(g =>
 			g.channels
 				.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
 				.sort((a, b) => b.position - a.position)
 				.first()
-				.send(quote)
+				.send(quote + quotes[randKey]['Idle'])
 				.catch(e => console.error(`Could not send to ${g.name}:`, e)),
 		);
-	}, 10000);
+	}, 1800000);
 }
 
 client.login(process.env.BOT_TOKEN);
