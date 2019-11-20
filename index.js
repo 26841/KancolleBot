@@ -166,7 +166,14 @@ function idle() {
 			const keys = Object.keys(quotes);
 			const randIndex = Math.floor(Math.random() * keys.length);
 			randKey = keys[randIndex];
-			quote = quotes[randKey]['Idle'];
+			const quotelist = quotes[randKey]['Idle'];
+			if (Array.isArray(quotelist)) {
+				quote = quotelist[Math.floor(Math.random() * quotelist.length)];
+			}
+			else {
+				quote = quotelist;
+			}
+
 		} while (!quote);
 		quote += ' - ' + tl.tlShipFromId(+randKey);
 		client.guilds.forEach(g =>
