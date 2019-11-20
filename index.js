@@ -7,7 +7,7 @@ const poi = ['Poi!', '!ioP', 'POI!', 'Pooooiiiii!', 'POOOOIIIII!', 'ぽい!', '�
 const client = new Discord.Client();
 const birthdays = require('./birthday.json');
 const ships = require('@kancolle/data/wiki/ship');
-const quotes = require('https://raw.githubusercontent.com/KC3Kai/kc3-translations/master/data/en/quotes.json');
+const quotes = require('./quotes.json');
 const getQuotes = name => {
 	let form = ships[name];
 	const forms = [form];
