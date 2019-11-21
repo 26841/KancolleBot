@@ -5,7 +5,6 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'poke',
 	description: 'Poke someone!',
-	cooldown: 5,
 	execute(message) {
 		let quote;
 		let randKey;
