@@ -190,7 +190,7 @@ function idle() {
 		catch (error) {
 			console.log(error);
 		}
-	}, 10000);
+	}, 1800000);
 }
 
 client.login(process.env.BOT_TOKEN);
