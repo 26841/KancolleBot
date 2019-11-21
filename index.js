@@ -176,9 +176,8 @@ function idle() {
 			const idleEmbed = new Discord.RichEmbed()
 				.setColor('#0099ff')
 				.setThumbnail('https://raw.githubusercontent.com/26841/Kancolle_Icons/master/Base/' + tl.tlShipFromId(+randKey).split(' ').join('_') + '.png')
-				.addField(quote)
-				.setTimestamp()
-				.setFooter(tl.tlShipFromId(+randKey));
+				.addField(tl.tlShipFromId(+randKey), quote)
+				.setTimestamp();
 			client.guilds.forEach(g =>
 				g.channels
 					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
