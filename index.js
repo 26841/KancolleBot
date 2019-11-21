@@ -21,6 +21,8 @@ const getQuotes = name => {
 };
 let timeout;
 client.commands = new Discord.Collection();
+const Keyv = require('keyv');
+const keyv = new Keyv('sqlite://path/to/database.sqlite');
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
@@ -176,27 +178,25 @@ function idle() {
 					quote = quotelist;
 				}
 			} while (!quote);
-			quote += ' - ' + tl.tlShipFromId(+randKey);
+			const idleEmbed = new Discord.RichEmbed()
+				.setColor('#0099ff')
+				.setThumbnail('https://raw.githubusercontent.com/26841/Kancolle_Icons/master/Base/' + tl.tlShipFromId(+randKey).split(' ').join('_') + '.png')
+				.addField(quote)
+				.setTimestamp()
+				.setFooter(tl.tlShipFromId(+randKey));
 			client.guilds.forEach(g =>
 				g.channels
 					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
 					.sort((a, b) => b.position - a.position)
 					.first()
-					.send(quote)
+					.send(idleEmbed)
 					.catch(e => console.error(`Could not send to ${g.name}:`, e)),
 			);
 		}
 		catch (error) {
-			client.guilds.forEach(g =>
-				g.channels
-					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
-					.sort((a, b) => b.position - a.position)
-					.first()
-					.send('-------Error at id: ' + +randKey + '-------')
-					.catch(e => console.error(`Could not send to ${g.name}:`, e)),
-			);
+			console.log(error);
 		}
-	}, 1800000);
+	}, 10000);
 }
 
 client.login(process.env.BOT_TOKEN);
