@@ -1,4 +1,4 @@
-const quotes = require('./quotes.json');
+const quotes = require('../quotes.json');
 const { api, tl, tlShip, tlShipFromId } = require('@kancolle/data');
 const Discord = require('discord.js');
 
