@@ -21,16 +21,11 @@ const getQuotes = name => {
 };
 let timeout;
 client.commands = new Discord.Collection();
-const Keyv = require('keyv');
-const keyv = new Keyv('sqlite://path/to/database.sqlite');
-
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
 }
-
 const cooldowns = new Discord.Collection();
 
 client.once('ready', () => {
