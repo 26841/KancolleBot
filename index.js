@@ -161,7 +161,6 @@ function idle() {
 				const keys = Object.keys(quotes);
 				const randIndex = Math.floor(Math.random() * keys.length);
 				randKey = keys[randIndex];
-				console.log(randKey);
 				const quotelist = quotes[+randKey]['Idle'];
 				if (typeof quotelist === 'object' && quotelist !== null) {
 					const keys2 = Object.keys(quotelist);

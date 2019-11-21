@@ -13,8 +13,7 @@ module.exports = {
 			const keys = Object.keys(quotes);
 			const randIndex = Math.floor(Math.random() * keys.length);
 			randKey = keys[randIndex];
-			console.log(randKey);
-			const quotelist = quotes[+randKey]['Poke(1)'];
+			const quotelist = quotes[+randKey]['Poke(' + Math.floor(Math.random() * 3) + ')'];
 			if (typeof quotelist === 'object' && quotelist !== null) {
 				const keys2 = Object.keys(quotelist);
 				const randIndex2 = Math.floor(Math.random() * keys2.length);
@@ -28,7 +27,8 @@ module.exports = {
 		const pokeEmbed = new Discord.RichEmbed()
 			.setColor('#0099ff')
 			.setThumbnail('https://raw.githubusercontent.com/26841/Kancolle_Icons/master/Base/' + tl.tlShipFromId(+randKey).split(' ').join('_') + '.png')
-			.addField(tl.tlShipFromId(+randKey), quote);
+			.addField(tl.tlShipFromId(+randKey), quote)
+			.setTimestamp();
 		message.channel.send(pokeEmbed);
 	},
 };
