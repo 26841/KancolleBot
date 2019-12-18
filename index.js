@@ -20,6 +20,7 @@ const getQuotes = name => {
 	return Object.assign({}, ...forms.map(form => quotes[form._api_id]));
 };
 let timeout;
+let timeout2;
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
@@ -40,6 +41,7 @@ client.once('ready', () => {
 	console.log('Ready!');
 	birthdayMessage();
 	idle();
+	liveTime();
 	client.user.setActivity('.help for commands');
 });
 
@@ -134,7 +136,7 @@ function birthdayMessage() {
 			}
 			const birthdayEmbed = new Discord.RichEmbed()
 				.setColor('#0099ff')
-				.setTitle('Happy Birthday ' + namesString + '!');
+				.setTitle('Happy Birthday, ' + namesString + '!');
 			client.guilds.forEach(g =>
 				g.channels
 					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
@@ -146,6 +148,23 @@ function birthdayMessage() {
 		}
 	});
 	job.start();
+}
+
+function liveTime() {
+	const job2 = new cron('0 */1 * * * *', function() {
+		try {
+			const today = new Date();
+			let minutes = today.getMinutes();
+			if (minutes < 10) {
+				minutes = '0' + minutes;
+			}
+			client.user.setActivity((today.getMonth() + 1) + '/' + today.getDate() + ', ' + today.getHours() + ':' + minutes + ':' + today.getSeconds());
+		}
+		catch (error) {
+			console.log(error);
+		}
+	});
+	job2.start();
 }
 
 function idle() {
