@@ -9,7 +9,7 @@ const birthdays = require('./birthday.json');
 const ships = require('@kancolle/data/wiki/ship');
 const quotes = require('./quotes.json');
 const { api, tl, tlShip, tlShipFromId } = require('@kancolle/data');
-const channelIDs = ['598301679464742921', '646196034439217166'];
+const channelIDs = ['598301679464742921', '646196034439217166', '725968164235509770'];
 const getQuotes = name => {
 	let form = ships[name];
 	const forms = [form];
@@ -149,7 +149,7 @@ function liveTime() {
 			if (minutes < 10) {
 				minutes = '0' + minutes;
 			}
-			client.user.setActivity((today.getMonth() + 1) + '/' + today.getDate() + ', ' + today.getHours() + ':' + minutes + ':' + today.getSeconds());
+			client.user.setActivity((today.getMonth() + 1) + '/' + today.getDate() + ', ' + today.getHours() + ':' + minutes);
 		}
 		catch (error) {
 			console.log(error);
