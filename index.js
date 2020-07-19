@@ -194,7 +194,7 @@ function idle() {
 		catch (error) {
 			console.log(error);
 		}
-	}, 60000);
+	}, 300000);
 }
 
 client.login(process.env.BOT_TOKEN);
