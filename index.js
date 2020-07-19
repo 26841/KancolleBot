@@ -9,6 +9,7 @@ const birthdays = require('./birthday.json');
 const ships = require('@kancolle/data/wiki/ship');
 const quotes = require('./quotes.json');
 const { api, tl, tlShip, tlShipFromId } = require('@kancolle/data');
+const channelIDs = ['598301679464742921'];
 const getQuotes = name => {
 	let form = ships[name];
 	const forms = [form];
@@ -30,6 +31,10 @@ for (const file of commandFiles) {
 const cooldowns = new Discord.Collection();
 
 client.once('ready', () => {
+	for (let i = 0; i < channelIDs.length; i++) {
+		client.channels.get(channelIDs[i]).send('Update/Reboot Successful!');
+	}
+	/*
 	client.guilds.forEach(g =>
 		g.channels
 			.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
@@ -38,6 +43,7 @@ client.once('ready', () => {
 			.send('Update/Reboot Successful!')
 			.catch(e => console.error(`Could not send to ${g.name}:`, e)),
 	);
+	*/
 	console.log('Ready!');
 	birthdayMessage();
 	idle();
@@ -196,7 +202,7 @@ function idle() {
 				.setThumbnail('https://raw.githubusercontent.com/26841/Kancolle_Icons/master/Base/' + tl.tlShipFromId(+randKey).split(' ').join('_') + '.png')
 				.addField(tl.tlShipFromId(+randKey), quote)
 				.setTimestamp();
-			client.channels.cache.get('598301679464742921').send(idleEmbed);
+			client.channels.get('598301679464742921').send(idleEmbed);
 			/*
 			client.guilds.forEach(g =>
 				g.channels
@@ -211,7 +217,7 @@ function idle() {
 		catch (error) {
 			console.log(error);
 		}
-	}, 1800000);
+	}, 60000);
 }
 
 client.login(process.env.BOT_TOKEN);
