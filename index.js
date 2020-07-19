@@ -9,7 +9,7 @@ const birthdays = require('./birthday.json');
 const ships = require('@kancolle/data/wiki/ship');
 const quotes = require('./quotes.json');
 const { api, tl, tlShip, tlShipFromId } = require('@kancolle/data');
-const channelIDs = ['598301679464742921'];
+const channelIDs = ['598301679464742921', '646196034439217166'];
 const getQuotes = name => {
 	let form = ships[name];
 	const forms = [form];
@@ -34,16 +34,6 @@ client.once('ready', () => {
 	for (let i = 0; i < channelIDs.length; i++) {
 		client.channels.get(channelIDs[i]).send('Update/Reboot Successful!');
 	}
-	/*
-	client.guilds.forEach(g =>
-		g.channels
-			.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
-			.sort((a, b) => b.position - a.position)
-			.first()
-			.send('Update/Reboot Successful!')
-			.catch(e => console.error(`Could not send to ${g.name}:`, e)),
-	);
-	*/
 	console.log('Ready!');
 	birthdayMessage();
 	idle();
@@ -143,14 +133,9 @@ function birthdayMessage() {
 			const birthdayEmbed = new Discord.RichEmbed()
 				.setColor('#0099ff')
 				.setTitle('Happy Birthday, ' + namesString + '!');
-			client.guilds.forEach(g =>
-				g.channels
-					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
-					.sort((a, b) => b.position - a.position)
-					.first()
-					.send(birthdayEmbed)
-					.catch(e => console.error(`Could not send to ${g.name}:`, e)),
-			);
+			for (let i = 0; i < channelIDs.length; i++) {
+				client.channels.get(channelIDs[i]).send(birthdayEmbed);
+			}
 		}
 	});
 	job.start();
@@ -202,17 +187,9 @@ function idle() {
 				.setThumbnail('https://raw.githubusercontent.com/26841/Kancolle_Icons/master/Base/' + tl.tlShipFromId(+randKey).split(' ').join('_') + '.png')
 				.addField(tl.tlShipFromId(+randKey), quote)
 				.setTimestamp();
-			client.channels.get('598301679464742921').send(idleEmbed);
-			/*
-			client.guilds.forEach(g =>
-				g.channels
-					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
-					.sort((a, b) => b.position - a.position)
-					.first()
-					.send(idleEmbed)
-					.catch(e => console.error(`Could not send to ${g.name}:`, e)),
-			);
-			*/
+			for (let i = 0; i < channelIDs.length; i++) {
+				client.channels.get(channelIDs[i]).send(idleEmbed);
+			}
 		}
 		catch (error) {
 			console.log(error);
