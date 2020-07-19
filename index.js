@@ -196,7 +196,7 @@ function idle() {
 				.setThumbnail('https://raw.githubusercontent.com/26841/Kancolle_Icons/master/Base/' + tl.tlShipFromId(+randKey).split(' ').join('_') + '.png')
 				.addField(tl.tlShipFromId(+randKey), quote)
 				.setTimestamp();
-			client.channels.cache.get('598301679464742921').send(idleEmbed);
+			client.channels.get('598301679464742921').send(idleEmbed);
 			/*
 			client.guilds.forEach(g =>
 				g.channels
