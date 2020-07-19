@@ -196,6 +196,8 @@ function idle() {
 				.setThumbnail('https://raw.githubusercontent.com/26841/Kancolle_Icons/master/Base/' + tl.tlShipFromId(+randKey).split(' ').join('_') + '.png')
 				.addField(tl.tlShipFromId(+randKey), quote)
 				.setTimestamp();
+			client.channels.cache.get('598301679464742921').send(idleEmbed);
+			/*
 			client.guilds.forEach(g =>
 				g.channels
 					.filter(c => c.type === 'text' && c.permissionsFor(g.me).has('SEND_MESSAGES'))
@@ -204,6 +206,7 @@ function idle() {
 					.send(idleEmbed)
 					.catch(e => console.error(`Could not send to ${g.name}:`, e)),
 			);
+			*/
 		}
 		catch (error) {
 			console.log(error);
