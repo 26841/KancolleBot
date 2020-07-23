@@ -21,7 +21,6 @@ const getQuotes = name => {
 	return Object.assign({}, ...forms.map(form => quotes[form._api_id]));
 };
 let timeout;
-let timeout2;
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
@@ -36,7 +35,9 @@ client.once('ready', () => {
 	}
 	console.log('Ready!');
 	birthdayMessage();
+	/*
 	idle();
+	*/
 	liveTime();
 	client.user.setActivity('.help for commands');
 });
