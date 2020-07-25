@@ -45,7 +45,9 @@ client.once('ready', () => {
 client.on('message', message => {
 
 	if(!message.author.bot && String(message).match(patt)) {
+		/*
 		idle(message);
+		*/
 		return message.channel.send(poi[Math.floor(Math.random() * poi.length)]);
 	}
 
@@ -97,7 +99,9 @@ client.on('message', message => {
 
 	try {
 		command.execute(message, args);
+		/*
 		idle(message);
+		*/
 	}
 	catch (error) {
 		console.error(error);
