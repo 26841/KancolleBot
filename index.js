@@ -10,6 +10,7 @@ const ships = require('@kancolle/data/wiki/ship');
 const quotes = require('./quotes.json');
 const { api, tl, tlShip, tlShipFromId } = require('@kancolle/data');
 const channelIDs = ['598301679464742921', '646196034439217166', '725968164235509770'];
+const channelIDs2 = ['598301679464742921', '646196034439217166'];
 const getQuotes = name => {
 	let form = ships[name];
 	const forms = [form];
@@ -30,7 +31,7 @@ for (const file of commandFiles) {
 const cooldowns = new Discord.Collection();
 
 client.once('ready', () => {
-	for (let i = 0; i < channelIDs.length; i++) {
+	for (let i = 0; i < channelIDs2.length; i++) {
 		client.channels.get(channelIDs[i]).send('Update/Reboot Successful!');
 	}
 	console.log('Ready!');
